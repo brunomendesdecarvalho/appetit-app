@@ -26,19 +26,7 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
 
     return Scaffold(
-      backgroundColor: Colors.white,
-      body: Center(
-        child: GroupedListView<dynamic, String>(
-          elements: _elements,
-          groupBy: (element) => element['group'],
-          groupSeparatorBuilder: (String groupByValue) => Text(groupByValue),
-          itemBuilder: (context, dynamic element) => Text(element['name']),
-          itemComparator: (item1, item2) => item1['name'].compareTo(item2['name']), // optional
-          useStickyGroupSeparators: true, // optional
-          floatingHeader: true, // optional
-          order: GroupedListOrder.ASC, // optional
-        ),
-      ),
+
     );
 
   }

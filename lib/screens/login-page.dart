@@ -25,7 +25,7 @@ class _LoginPageState extends State<LoginPage> {
     });
   }
   void _onSubmit() {
-    print('Hello Reactive Forms!!!');
+    Navigator.of(context).pushNamed(HomePage.tag);
   }
 
   Padding loginText(double fontsize, Color color, String content) {
