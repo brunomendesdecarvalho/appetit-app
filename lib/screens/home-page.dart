@@ -38,6 +38,29 @@ class _HomePageState extends State<HomePage> {
                 endIndent: 104,
                 color: Color(0xFFB8CC3B),
               ),
+            InkWell(
+              child: Card(
+                child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: <Widget>[
+                       ListTile(
+                        leading: Icon(Icons.add, color: Color(0xFFFF8822)),
+                        title: Transform.translate(
+                          offset: Offset(-20, 0),
+                          child: Text(
+                            'FAZER NOVO PEDIDO',
+                            style: TextStyle(
+                              fontSize: 14.0,
+                              color: Colors.black54
+                            ),
+                          ),
+                        ),
+                      ),
+                  ],
+                ),
+              ),
+              onTap: () => {},
+            ),
               Container(
 
               ),
