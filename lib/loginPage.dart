@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:teste/theme.dart';
 
 class LoginPage extends StatefulWidget {
-  bool _emailValid = false;
-  bool _passValid = false;
   bool _btnEnabled = false;
   static String tag = 'login-page';
   LoginPage({Key? key}) : super(key: key);
@@ -12,11 +11,50 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
+  bool _emailValid = false;
+  bool _passValid = false;
   bool _obscureText = true;
+
   void _toggle() {
     setState(() {
       _obscureText = !_obscureText;
     });
+  }
+
+  Padding loginText(double fontsize, Color color, String content) {
+    return Padding(
+      padding: EdgeInsets.all(8.0),
+      child: Text(
+        content,
+        style: TextStyle(fontSize: fontsize, color: color),
+        textAlign: TextAlign.center,
+      ),
+    );
+  }
+
+  TextFormField loginField(String campo) {
+
+      return TextFormField(
+        autofocus: false,
+        obscureText: (campo == 'E-mail') ? false : _obscureText,
+        decoration: InputDecoration(
+          labelText: campo,
+          contentPadding: EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 10.0),
+          border: OutlineInputBorder(borderRadius: BorderRadius.circular(4.0)),
+          focusedBorder: OutlineInputBorder(
+            borderSide: BorderSide(color: getCorTema(), width: 2.0),
+            borderRadius: BorderRadius.circular(4.0),
+          ),
+          suffixIcon: (campo == 'E-mail') ? null : IconButton(
+            icon: Icon(
+              _obscureText ? Icons.visibility : Icons.visibility_off,
+              color: getCorTema(),
+            ),
+            onPressed: this._toggle,
+          ),
+        ),
+      );
+
   }
 
   @override
@@ -27,60 +65,10 @@ class _LoginPageState extends State<LoginPage> {
       child: Image.asset('assets/logo.png'),
     );
 
-    final title = Padding(
-      padding: EdgeInsets.all(8.0),
-      child: Text(
-        'Seja bem-vindo!',
-        style: TextStyle(fontSize: 24.0, color: Color(0xFFE57A1F)),
-        textAlign: TextAlign.center,
-      ),
-    );
-
-    final subtitle = Padding(
-      padding: EdgeInsets.all(8.0),
-      child: Text(
-        'Nós sabemos a importância de estar sempre de barriga cheia e o quanto isso pode ajudar no seu dia.',
-        style: TextStyle(fontSize: 16.0, color: Colors.black54),
-        textAlign: TextAlign.center,
-      ),
-    );
-
-    final email = TextFormField(
-      keyboardType: TextInputType.emailAddress,
-      autofocus: false,
-      decoration: InputDecoration(
-          labelText: 'E-mail',
-          hintText: 'exemplo@exemplo.com',
-          contentPadding: EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 10.0),
-          border: OutlineInputBorder(borderRadius: BorderRadius.circular(4.0)),
-          focusedBorder: OutlineInputBorder(
-              borderSide: BorderSide(color: Color(0xFFFF8822), width: 2.0),
-              borderRadius: BorderRadius.circular(4.0),
-        ),
-      ),
-    );
-
-    final password = TextFormField(
-      autofocus: false,
-      obscureText: _obscureText,
-      decoration: InputDecoration(
-        labelText: 'Senha',
-        hintText: 'Insira a sua senha',
-        contentPadding: EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 10.0),
-        border: OutlineInputBorder(borderRadius: BorderRadius.circular(4.0)),
-        focusedBorder: OutlineInputBorder(
-          borderSide: BorderSide(color: Color(0xFFFF8822), width: 2.0),
-          borderRadius: BorderRadius.circular(4.0),
-        ),
-          suffixIcon: IconButton(
-              icon: Icon(
-                _obscureText ? Icons.visibility : Icons.visibility_off,
-                color: Color(0xFFFF8822),
-              ),
-              onPressed: _toggle,
-        ),
-      ),
-    );
+    final title = loginText(24.0, getCorTema(), 'Seja bem-vindo!');
+    final subtitle = loginText(16.0, Colors.black54, 'Nós sabemos a importância de estar sempre de barriga cheia e o quanto isso pode ajudar no seu dia.');
+    final email = loginField('E-mail');
+    final password = loginField('Senha');
 
     final loginButton = Padding(
       padding: EdgeInsets.symmetric(vertical: 16.0),
@@ -89,7 +77,7 @@ class _LoginPageState extends State<LoginPage> {
           borderRadius: BorderRadius.circular(24),
         ),
         onPressed: () {
-
+          (_emailValid) ? null : () => {};
         },
         padding: EdgeInsets.all(12),
         color: Color(0xFFFF8822),
