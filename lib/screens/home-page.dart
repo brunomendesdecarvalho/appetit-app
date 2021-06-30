@@ -1,3 +1,4 @@
+import 'package:appetit/utils/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:grouped_list/grouped_list.dart';
 
@@ -10,24 +11,39 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  List _elements = [
-    {'topicName': 'GridView.count', 'group': 'GridView Type'},
-    {'topicName': 'GridView.builder', 'group': 'GridView Type'},
-    {'topicName': 'GridView.custom', 'group': 'GridView Type'},
-    {'topicName': 'GridView.extent', 'group': 'GridView Type'},
-    {'topicName': 'ListView.builder', 'group': 'ListView Type'},
-    {'topicName': 'StatefulWidget', 'group': 'Type of Widget'},
-    {'topicName': 'ListView', 'group': 'ListView Type'},
-    {'topicName': 'ListView.separated', 'group': 'ListView Type'},
-    {'topicName': 'ListView.custom', 'group': 'ListView Type'},
-    {'topicName': 'StatelessWidget', 'group': 'Type of Widget'},
-  ];
+
   @override
   Widget build(BuildContext context) {
 
     return Scaffold(
+        body: Center(
+          child: Column(
+            children: <Widget>[
+              SizedBox(height: 80.0),
+              Container(
+                alignment: Alignment.topLeft,
+                child: Text(
+                    'Olá, Alessandra!',
+                    style: TextStyle(
+                        fontSize: 32.0,
+                        color: getCorTema(),
+                    )
+                ),
+                margin: EdgeInsets.fromLTRB(16.0, 16.0, 16.0, 8.0),
+              ),
+              const Divider(
+                height: 8,
+                thickness: 2,
+                indent: 16,
+                endIndent: 104,
+                color: Color(0xFFB8CC3B),
+              ),
+              Container(
 
+              ),
+            ],
+          ),
+      ),
     );
-
   }
 }

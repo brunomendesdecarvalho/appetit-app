@@ -126,11 +126,6 @@ class _LoginPageState extends State<LoginPage> {
             subtitle,
             SizedBox(height: 48.0),
             buildForm(email, password),
-            // email,
-            // SizedBox(height: 8.0),
-            // password,
-            // SizedBox(height: 24.0),
-            // loginButton,
             forgotLabel
           ],
         ),
