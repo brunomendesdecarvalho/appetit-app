@@ -1,14 +1,24 @@
 import 'package:flutter/material.dart';
 
 class LoginPage extends StatefulWidget {
+  bool _emailValid = false;
+  bool _passValid = false;
+  bool _btnEnabled = false;
   static String tag = 'login-page';
-  const LoginPage({Key? key}) : super(key: key);
+  LoginPage({Key? key}) : super(key: key);
 
   @override
   _LoginPageState createState() => _LoginPageState();
 }
 
 class _LoginPageState extends State<LoginPage> {
+  bool _obscureText = true;
+  void _toggle() {
+    setState(() {
+      _obscureText = !_obscureText;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
 
@@ -39,19 +49,36 @@ class _LoginPageState extends State<LoginPage> {
       keyboardType: TextInputType.emailAddress,
       autofocus: false,
       decoration: InputDecoration(
-          hintText: 'Insira seu e-mail aqui',
+          labelText: 'E-mail',
+          hintText: 'exemplo@exemplo.com',
           contentPadding: EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 10.0),
-          border: OutlineInputBorder(borderRadius: BorderRadius.circular(32.0)),
+          border: OutlineInputBorder(borderRadius: BorderRadius.circular(4.0)),
+          focusedBorder: OutlineInputBorder(
+              borderSide: BorderSide(color: Color(0xFFFF8822), width: 2.0),
+              borderRadius: BorderRadius.circular(4.0),
+        ),
       ),
     );
 
     final password = TextFormField(
       autofocus: false,
-      obscureText: true,
+      obscureText: _obscureText,
       decoration: InputDecoration(
-        hintText: 'Insira a sua senha aqui',
+        labelText: 'Senha',
+        hintText: 'Insira a sua senha',
         contentPadding: EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 10.0),
-        border: OutlineInputBorder(borderRadius: BorderRadius.circular(32.0)),
+        border: OutlineInputBorder(borderRadius: BorderRadius.circular(4.0)),
+        focusedBorder: OutlineInputBorder(
+          borderSide: BorderSide(color: Color(0xFFFF8822), width: 2.0),
+          borderRadius: BorderRadius.circular(4.0),
+        ),
+          suffixIcon: IconButton(
+              icon: Icon(
+                _obscureText ? Icons.visibility : Icons.visibility_off,
+                color: Color(0xFFFF8822),
+              ),
+              onPressed: _toggle,
+        ),
       ),
     );
 
@@ -72,7 +99,7 @@ class _LoginPageState extends State<LoginPage> {
 
     final forgotLabel = FlatButton(
       child: Text(
-        'Forgot password?',
+        'Esqueceu a senha?',
         style: TextStyle(color: Colors.black54),
       ),
       onPressed: () {},
