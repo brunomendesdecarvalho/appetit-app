@@ -79,13 +79,13 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
-  grouped_list:
+  group_list_view:
     dependency: "direct main"
     description:
-      name: grouped_list
+      name: group_list_view
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "4.0.0"
+    version: "1.1.1"
   intl:
     dependency: transitive
     description:
