@@ -16,7 +16,7 @@ GroupListView createCard() {
     itemBuilder: (BuildContext context, IndexPath index) {
       return ListTile(
         leading: CircleAvatar(
-          backgroundImage: AssetImage('assets/foto.png'),
+          backgroundImage: AssetImage('assets/foto.jpg'),
         ),
         title:
         new Row(

@@ -1,3 +1,6 @@
+import 'package:appetit/screens/newOrderPage/widgets/food.dart';
+import 'package:appetit/screens/newOrderPage/components/progress-bar.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import 'components/back-button.dart';
@@ -17,55 +20,19 @@ class _NewOrderPageState extends State<NewOrderPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       appBar: backButton(context),
-      body: Column(
-        children: [
-          orderText(),
-          bottomLine(),
-          descriptionText(),
-          search(),
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            orderText(),
+            bottomLine(),
+            descriptionText(),
+            ProgressBarAndText(),
+            search(),
+            FoodsWidget(),
 
-        ],
-      ),
-    );
-  }
-}
-
-class FirstRoute extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('First Route'),
-      ),
-      body: Center(
-        child: ElevatedButton(
-          child: Text('Open route'),
-          onPressed: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => SecondRoute()),
-            );
-          },
-        ),
-      ),
-    );
-  }
-}
-
-class SecondRoute extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text("Second Route"),
-      ),
-      body: Center(
-        child: ElevatedButton(
-          onPressed: () {
-            Navigator.pop(context);
-          },
-          child: Text('Go back!'),
+          ],
         ),
       ),
     );

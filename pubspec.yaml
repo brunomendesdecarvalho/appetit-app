@@ -14,6 +14,7 @@ dependencies:
   group_list_view: ^1.1.1
   cupertino_icons: ^1.0.2
   reactive_forms: ^10.4.1
+  flutter_animation_progress_bar: ^2.0.0
   flutter_localizations:
     sdk: flutter
 
@@ -43,6 +44,13 @@ flutter:
   assets:
      - assets/logo.png
      - assets/foto.jpg
+     - assets/cuscuz_simples.jpg
+     - assets/cuscuz_completo.jpg
+     - assets/misto_quente.jpg
+     - assets/pao_caseiro.jpg
+     - assets/pao_caseiro_completo.jpg
+     - assets/lingua_de_sogra.jpg
+     - assets/lingua_de_sogra_grande.jpg
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
