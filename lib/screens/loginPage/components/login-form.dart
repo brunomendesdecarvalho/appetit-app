@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:reactive_forms/reactive_forms.dart';
 
 final form = fb.group({
-  'email': ['', Validators.required, Validators.email, Validators.equals('teste@teste.com')],
-  'password': ['', Validators.required, Validators.minLength(8), Validators.equals('12345678')],
+  'email': ['teste@teste.com', Validators.required, Validators.email, Validators.equals('teste@teste.com')],
+  'password': ['12345678', Validators.required, Validators.minLength(8), Validators.equals('12345678')],
 });
 
 ReactiveForm buildForm(ReactiveTextField email, ReactiveTextField senha) {

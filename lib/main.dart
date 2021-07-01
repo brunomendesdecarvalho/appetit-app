@@ -1,6 +1,7 @@
 import 'package:appetit/screens/newOrderPage/new-order.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:flutter/services.dart';
 import 'utils/theme.dart';
 import 'screens/loginPage/login-page.dart';
 import 'screens/homePage/home-page.dart';
@@ -16,6 +17,9 @@ class Appetit extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
+      statusBarColor: Colors.transparent,
+    ));
     return MaterialApp(
       localizationsDelegates: [
         GlobalMaterialLocalizations.delegate,
