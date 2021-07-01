@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'utils/theme.dart';
-import 'screens/login-page.dart';
-import 'screens/home-page.dart';
+import 'screens/loginPage/login-page.dart';
+import 'screens/homePage/home-page.dart';
 
 void main() => runApp(Appetit());
 
