@@ -1,6 +1,7 @@
+import 'package:appetit/screens/newOrderPage/new-order.dart';
 import 'package:flutter/material.dart';
 
-InkWell orderButton() {
+InkWell orderButton(context) {
   return InkWell(
     child: Card(
       elevation: 1,
@@ -23,6 +24,6 @@ InkWell orderButton() {
         ],
       ),
     ),
-    onTap: () => {},
+    onTap: () => {Navigator.of(context).pushNamed(NewOrderPage.tag)},
   );
 }

@@ -15,7 +15,7 @@ GroupListView createCard() {
     },
     itemBuilder: (BuildContext context, IndexPath index) {
       return ListTile(
-          title: Text(
+        title: Text(
           _elements.values.toList()[index.section][index.index],
           style: TextStyle(color: Colors.black, fontSize: 18),
       ),
@@ -31,7 +31,11 @@ GroupListView createCard() {
         ),
       );
     },
-    separatorBuilder: (context, index) => SizedBox(height: 10),
+    separatorBuilder: (context, index) => Divider(
+      height: 8,
+      thickness: 1,
+      color: Colors.black12,
+    ),
     sectionSeparatorBuilder: (context, section) => SizedBox(height: 10),
   );
 }

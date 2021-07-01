@@ -1,6 +1,7 @@
 import 'package:appetit/screens/homePage/components/new-order-button.dart';
 import 'package:flutter/material.dart';
 import 'components/orders-card.dart';
+import 'components/search.dart';
 import 'components/welcome-text.dart';
 
 class HomePage extends StatefulWidget {
@@ -25,7 +26,8 @@ class _HomePageState extends State<HomePage> {
                 SizedBox(height: 80.0),
                 welcomeText(),
                 bottomLine(),
-                orderButton(),
+                orderButton(context),
+                search(),
                 Container(
                   child: createCard(),
                 ),

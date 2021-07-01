@@ -1,11 +1,10 @@
 import 'package:appetit/screens/homePage/home-page.dart';
-import 'package:appetit/utils/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:reactive_forms/reactive_forms.dart';
 
 final form = fb.group({
-  'email': ['', Validators.required, Validators.email],
-  'password': ['', Validators.required, Validators.minLength(9)],
+  'email': ['', Validators.required, Validators.email, Validators.equals('teste@teste.com')],
+  'password': ['', Validators.required, Validators.minLength(8), Validators.equals('12345678')],
 });
 
 ReactiveForm buildForm(ReactiveTextField email, ReactiveTextField senha) {

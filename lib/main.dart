@@ -1,3 +1,4 @@
+import 'package:appetit/screens/newOrderPage/new-order.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'utils/theme.dart';
@@ -10,6 +11,7 @@ class Appetit extends StatelessWidget {
   final routes = <String, WidgetBuilder>{
     LoginPage.tag: (context) => LoginPage(),
     HomePage.tag: (context) => HomePage(),
+    NewOrderPage.tag: (context) => NewOrderPage(),
   };
 
   @override
