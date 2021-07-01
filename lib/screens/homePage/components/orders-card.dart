@@ -15,18 +15,35 @@ GroupListView createCard() {
     },
     itemBuilder: (BuildContext context, IndexPath index) {
       return ListTile(
-        title: Text(
-          _elements.values.toList()[index.section][index.index],
-          style: TextStyle(color: Colors.black, fontSize: 18),
-      ),
-        subtitle: Text('Itens da compra'),
+        leading: CircleAvatar(
+          backgroundImage: AssetImage('assets/foto.png'),
+        ),
+        title:
+        new Row(
+          children: <Widget>[
+            Text(
+              _elements.values.toList()[index.section][index.index],
+              style: TextStyle(color: Colors.black, fontSize: 18),
+            ),
+            Spacer(),
+            Text(
+                'R\$ 5,50',
+                style: TextStyle(color: Colors.black, fontSize: 18),
+                textAlign: TextAlign.end,
+            ),
+          ],
+        ),
+        subtitle: Text(
+            'Itens da compra abc aaaaa aaaaaaaaa aaaaaaaaaaaaaaaaaaaa',
+            overflow: TextOverflow.ellipsis,
+          ),
         );
     },
     groupHeaderBuilder: (BuildContext context, int section) {
       return Padding(
         padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 8),
         child: Text(
-          'Em ' + _elements.keys.toList()[section] + ' você vendeu R\$ 16,50',
+          'Em ' + _elements.keys.toList()[section] + ', você arrecadou R\$ 16,50',
           style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
         ),
       );
