@@ -53,7 +53,8 @@ class AdvanceBar extends StatelessWidget {
             child: Text(
               'Total: R\$ 3,25',
               style: TextStyle(
-                  color: Colors.white
+                fontSize: 16,
+                color: Colors.white
               ),
             ),
           ),
@@ -61,7 +62,7 @@ class AdvanceBar extends StatelessWidget {
           Text(
             'Avançar',
             style: new TextStyle(
-                fontSize: 14.0,
+                fontSize: 16.0,
                 color: Colors.white,
                 fontWeight: FontWeight.w400),
           ),
