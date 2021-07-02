@@ -135,7 +135,12 @@ class _FoodDetailsPageState extends State<FoodDetailsPage> {
                   ),
                 ],
               ),
-              AddToCartMenu(),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.end,
+                children: [
+                  AddToCartMenu(),
+                ],
+              ),
               // SizedBox(
               //   height: 15,
               // ),
@@ -151,52 +156,83 @@ class _FoodDetailsPageState extends State<FoodDetailsPage> {
 class AddToCartMenu extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: <Widget>[
-          IconButton(
-            onPressed: () {},
-            icon: Icon(Icons.remove),
-            color: Colors.black12,
-            iconSize: 16,
-          ),
-          Text('1'),
-          IconButton(
-            onPressed: () {},
-            icon: Icon(Icons.add),
-            color: getCorTema(),
-            iconSize: 16,
-          ),
-          InkWell(
-            onTap: () {
-              Navigator.pop(
-                  context,
-                  PageTransition(
-                      type: PageTransitionType.topToBottom,
-                      child: NewOrderPage()
-                  )
-              );
-            },
-            child: Container(
-              width: 200.0,
-              height: 45.0,
-              decoration: new BoxDecoration(
-                color: getCorTema(),
-                borderRadius: BorderRadius.circular(10.0),
-              ),
-              child: Center(
-                child: Text(
-                  'Adicionar',
-                  style: new TextStyle(
-                      fontSize: 18.0,
-                      color: Colors.white,
-                      fontWeight: FontWeight.w400),
+    return Container(
+      padding: EdgeInsets.only(top: 5),
+      child: Center(
+        child: Row(
+          children: [
+            BottomAppBar(
+              child: Row(
+                children: <Widget>[
+                Padding(
+                  padding: EdgeInsets.only(left: 4, right: 20),
+                  child: IconButton(
+                    onPressed: () {},
+                    icon: Icon(Icons.remove),
+                    color: Colors.black12,
+                    iconSize: 16,
+                  ),
                 ),
-              ),
+                Text('1'),
+                Padding(
+                  padding: EdgeInsets.only(left: 20, right: 44),
+                  child: IconButton(
+                    onPressed: () {},
+                    icon: Icon(Icons.add),
+                    color: getCorTema(),
+                    iconSize: 16,
+                  ),
+                ),
+                Padding(
+                  padding: EdgeInsets.only(top: 10, right: 16, bottom: 10),
+                  child: InkWell(
+                    onTap: () {
+                      Navigator.pop(
+                          context,
+                          PageTransition(
+                              type: PageTransitionType.topToBottom,
+                              child: NewOrderPage()
+                          )
+                      );
+                    },
+                    child: Container(
+                      width: 184.0,
+                      height: 48.0,
+                      decoration: new BoxDecoration(
+                        color: getCorTema(),
+                        borderRadius: BorderRadius.circular(5.0),
+                      ),
+                      child: Center(
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: [
+                            Text(
+                              'Adicionar',
+                              style: new TextStyle(
+                                  fontSize: 14.0,
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.w400),
+                            ),
+                            Text(
+                              'R\$ 3,25',
+                              style: new TextStyle(
+                                  fontSize: 14.0,
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.w400),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+
+                ]
+              )
+
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
