@@ -3,7 +3,6 @@ import 'package:appetit/utils/title_text.dart';
 import 'package:flutter/material.dart';
 import 'components/orders_card.dart';
 import 'components/search.dart';
-import 'components/welcome_text.dart';
 
 class HomePage extends StatefulWidget {
   static String tag = 'home-page';

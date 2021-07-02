@@ -54,7 +54,7 @@ class FoodTiles extends StatelessWidget {
         Navigator.push(
             context,
             PageTransition(
-                type: PageTransitionType.leftToRightWithFade,
+                type: PageTransitionType.bottomToTop,
                 child: FoodDetailsPage()
             )
         );

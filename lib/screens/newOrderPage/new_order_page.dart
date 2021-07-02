@@ -26,7 +26,6 @@ class _NewOrderPageState extends State<NewOrderPage> {
         child: Column(
           children: [
             TitleText('Informações para o pedido'),
-            // bottomLine(),
             DescriptionText('Preencha as informações abaixo para concluir o pedido.'),
             ProgressBarAndText(),
             search(),
