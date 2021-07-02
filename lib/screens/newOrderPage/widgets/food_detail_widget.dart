@@ -3,7 +3,6 @@ import 'package:appetit/utils/theme.dart';
 import 'package:appetit/utils/title_text.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_cart/flutter_cart.dart';
 import 'package:page_transition/page_transition.dart';
 
 import '../new_order_page_food.dart';

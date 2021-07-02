@@ -12,11 +12,11 @@ dependencies:
   flutter:
     sdk: flutter
   group_list_view: ^1.1.1
-  cupertino_icons: ^1.0.2
   reactive_forms: ^10.4.1
   flutter_animation_progress_bar: ^2.0.0
   page_transition: ^2.0.2
-  flutter_cart: ^0.0.6
+  flutter_form_builder: ^6.0.1
+  flutter_material_pickers: ^3.1.0
   flutter_localizations:
     sdk: flutter
 

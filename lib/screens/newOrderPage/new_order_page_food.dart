@@ -1,5 +1,5 @@
 import 'package:appetit/screens/newOrderPage/widgets/food_widget.dart';
-import 'package:appetit/screens/newOrderPage/components/progress_bar.dart';
+import 'package:appetit/screens/newOrderPage/components/progress_bar_and_text.dart';
 import 'package:appetit/utils/theme.dart';
 import 'package:appetit/utils/title_text.dart';
 import 'package:flutter/cupertino.dart';
@@ -23,7 +23,6 @@ class _NewOrderPageState extends State<NewOrderPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-
       resizeToAvoidBottomInset: false,
       appBar: backButton(context),
       body: SingleChildScrollView(

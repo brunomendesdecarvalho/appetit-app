@@ -1,6 +1,5 @@
 import 'package:appetit/screens/newOrderPage/widgets/client_widget.dart';
-import 'package:appetit/screens/newOrderPage/widgets/food_widget.dart';
-import 'package:appetit/screens/newOrderPage/components/progress_bar.dart';
+import 'package:appetit/screens/newOrderPage/components/progress_bar_and_text.dart';
 import 'package:appetit/utils/theme.dart';
 import 'package:appetit/utils/title_text.dart';
 import 'package:flutter/cupertino.dart';
@@ -9,6 +8,7 @@ import 'package:page_transition/page_transition.dart';
 
 import 'components/back_button.dart';
 import 'components/search.dart';
+import 'new_order_page_date.dart';
 
 class ClientsPage extends StatefulWidget {
   static String tag = 'clients-page';
@@ -36,6 +36,11 @@ class _ClientsPageState extends State<ClientsPage> {
             ClientsWidget(),
           ],
         ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {},
+        child: Icon(Icons.add),
+        backgroundColor: getCorTema(),
       ),
       bottomNavigationBar: AdvanceBar(),
     );
@@ -72,16 +77,17 @@ class AdvanceBar extends StatelessWidget {
               Icons.arrow_forward_ios,
               color: Colors.white,
               size: 12,
-            ), onPressed: () {
-            // // Navigator.push(
-            // //     context,
-            // //     PageTransition(
-            // //         type: PageTransitionType.rightToLeft,
-            //            duration: Duration(milliseconds: 500),
-            //            reverseDuration: Duration(milliseconds: 500),
-            // //         child: DateOfPaymentPage()
-            //     )
-            // );
+            ),
+            onPressed: () {
+              Navigator.push(
+                 context,
+                 PageTransition(
+                     type: PageTransitionType.rightToLeft,
+                       duration: Duration(milliseconds: 500),
+                       reverseDuration: Duration(milliseconds: 500),
+                       child: DateOfPaymentPage()
+                )
+            );
           },
           ),
         ],

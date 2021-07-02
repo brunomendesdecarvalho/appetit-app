@@ -6,7 +6,7 @@ AppBar backButton(context) {
     elevation: 0,
     leading: IconButton(
       icon: Icon(
-          Icons.arrow_back,
+          Icons.arrow_back_ios,
           color: Color(0xFFFF8822)
       ),
       onPressed: () => {

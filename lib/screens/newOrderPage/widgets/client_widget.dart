@@ -87,19 +87,17 @@ class ClientTitle extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       padding: EdgeInsets.only(left: 16, right: 290, top: 23, bottom: 16),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: <Widget>[
-          Text(
-            "Meus clientes",
-            style: TextStyle(
-                fontSize: 16,
-                color: Colors.black,
-                fontWeight: FontWeight.bold
+      child: Container(
+              child: Text(
+                  "Meus clientes",
+                  style: TextStyle(
+                      fontSize: 16,
+                      color: Colors.black,
+                      fontWeight: FontWeight.bold
+              ),
             ),
           )
-        ],
-      ),
+
     );
   }
 }
