@@ -1,3 +1,4 @@
+import 'package:appetit/screens/endPage/order_finished.dart';
 import 'package:appetit/screens/homePage/components/option_button.dart';
 import 'package:appetit/screens/newOrderPage/widgets/client_widget.dart';
 import 'package:appetit/screens/newOrderPage/components/progress_bar_and_text.dart';
@@ -73,7 +74,17 @@ class _DateOfPaymentPageState extends State<DateOfPaymentPage> {
                 borderRadius: BorderRadius.circular(24),
               ),
               // onPressed: (date == null) ? () => {} : null,
-              onPressed: () => {},
+              onPressed: () => {
+                Navigator.push(
+                  context,
+                  PageTransition(
+                      type: PageTransitionType.rightToLeft,
+                      duration: Duration(milliseconds: 500),
+                      reverseDuration: Duration(milliseconds: 500),
+                      child: EndOfOrderPage()
+                    )
+                  )
+              },
               padding: EdgeInsets.symmetric(vertical : 14, horizontal: 24),
               color: Color(0xFFFF8822),
               child: Text('FINALIZAR PEDIDO', style: TextStyle(color: Colors.white)),
