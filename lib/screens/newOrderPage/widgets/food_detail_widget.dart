@@ -4,6 +4,9 @@ import 'package:appetit/utils/title_text.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_cart/flutter_cart.dart';
+import 'package:page_transition/page_transition.dart';
+
+import '../new_order_page.dart';
 
 class FoodDetailsPage extends StatefulWidget {
   @override
@@ -132,7 +135,7 @@ class _FoodDetailsPageState extends State<FoodDetailsPage> {
                   ),
                 ],
               ),
-              // AddToCartMenu(),
+              AddToCartMenu(),
               // SizedBox(
               //   height: 15,
               // ),
@@ -145,116 +148,56 @@ class _FoodDetailsPageState extends State<FoodDetailsPage> {
   }
 }
 
-// class FoodTitleWidget extends StatelessWidget {
-//   String productName;
-//   String productPrice;
-//   String productDesc;
-//
-//   FoodTitleWidget({
-//     Key? key,
-//     required this.productName,
-//     required this.productPrice,
-//     required this.productDesc,
-//   }) : super(key: key);
-//
-//   @override
-//   Widget build(BuildContext context) {
-//     return Column(
-//       children: <Widget>[
-//         Row(
-//           children: <Widget>[
-//             CircleAvatar(
-//               backgroundImage: AssetImage('assets/cuscuz_completo.jpg'),
-//             ),
-//             Column(
-//               children: [
-//                 Text(
-//                   productName,
-//                   style: TextStyle(
-//                       fontSize: 16,
-//                       color: Colors.black,
-//                       fontWeight: FontWeight.w500
-//                   ),
-//                 ),
-//                 Text(
-//                   productDesc,
-//                   style: TextStyle(
-//                     fontSize: 16,
-//                     color: Colors.black54,
-//                   ),
-//                 ),
-//               ],
-//             ),
-//             Text(
-//               productPrice,
-//               style: TextStyle(
-//                   fontSize: 20,
-//                   color: Color(0xFF3a3a3b),
-//                   fontWeight: FontWeight.w500),
-//             ),
-//           ],
-//         ),
-//       ],
-//     );
-//   }
-// }
-//
-// class BottomMenu extends StatelessWidget {
-//   @override
-//   Widget build(BuildContext context) {
-//     return Container(
-//       child: Row(
-//         children: <Widget>[
-//           ]
-//       ),
-//     );
-//   }
-// }
-
-// class AddToCartMenu extends StatelessWidget {
-//   @override
-//   Widget build(BuildContext context) {
-//     return Center(
-//       child: Row(
-//         mainAxisAlignment: MainAxisAlignment.center,
-//         children: <Widget>[
-//           IconButton(
-//             onPressed: () {},
-//             icon: Icon(Icons.remove),
-//             color: Colors.black,
-//             iconSize: 30,
-//           ),
-//           InkWell(
-//             onTap: () {
-//               // Navigator.push(context, ScaleRoute(page: FoodOrderPage()));
-//             },
-//             child: Container(
-//               width: 200.0,
-//               height: 45.0,
-//               decoration: new BoxDecoration(
-//                 color: Color(0xFFfd2c2c),
-//                 border: Border.all(color: Colors.white, width: 2.0),
-//                 borderRadius: BorderRadius.circular(10.0),
-//               ),
-//               child: Center(
-//                 child: Text(
-//                   'abc',
-//                   style: new TextStyle(
-//                       fontSize: 18.0,
-//                       color: Colors.white,
-//                       fontWeight: FontWeight.w400),
-//                 ),
-//               ),
-//             ),
-//           ),
-//           IconButton(
-//             onPressed: () {},
-//             icon: Icon(Icons.add),
-//             color: Color(0xFFfd2c2c),
-//             iconSize: 30,
-//           ),
-//         ],
-//       ),
-//     );
-//   }
-// }
+class AddToCartMenu extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: <Widget>[
+          IconButton(
+            onPressed: () {},
+            icon: Icon(Icons.remove),
+            color: Colors.black12,
+            iconSize: 16,
+          ),
+          Text('1'),
+          IconButton(
+            onPressed: () {},
+            icon: Icon(Icons.add),
+            color: getCorTema(),
+            iconSize: 16,
+          ),
+          InkWell(
+            onTap: () {
+              Navigator.pop(
+                  context,
+                  PageTransition(
+                      type: PageTransitionType.topToBottom,
+                      child: NewOrderPage()
+                  )
+              );
+            },
+            child: Container(
+              width: 200.0,
+              height: 45.0,
+              decoration: new BoxDecoration(
+                color: getCorTema(),
+                borderRadius: BorderRadius.circular(10.0),
+              ),
+              child: Center(
+                child: Text(
+                  'Adicionar',
+                  style: new TextStyle(
+                      fontSize: 18.0,
+                      color: Colors.white,
+                      fontWeight: FontWeight.w400),
+                ),
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}

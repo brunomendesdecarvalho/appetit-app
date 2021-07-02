@@ -55,6 +55,8 @@ class FoodTiles extends StatelessWidget {
             context,
             PageTransition(
                 type: PageTransitionType.bottomToTop,
+                duration: Duration(milliseconds: 500),
+                reverseDuration: Duration(milliseconds: 500),
                 child: FoodDetailsPage()
             )
         );
