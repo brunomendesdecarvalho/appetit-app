@@ -53,6 +53,9 @@ flutter:
      - assets/pao_caseiro_completo.jpg
      - assets/lingua_de_sogra.jpg
      - assets/lingua_de_sogra_grande.jpg
+     - assets/rick_sanchez.jpg
+     - assets/vivi_ornitier.jpg
+     - assets/naruto_uzumaki.jpg
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

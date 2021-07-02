@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_cart/flutter_cart.dart';
 import 'package:page_transition/page_transition.dart';
 
-import '../new_order_page.dart';
+import '../new_order_page_food.dart';
 
 class FoodDetailsPage extends StatefulWidget {
   @override

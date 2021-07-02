@@ -1,4 +1,4 @@
-import 'package:appetit/screens/newOrderPage/new_order_page.dart';
+import 'package:appetit/screens/newOrderPage/new_order_page_food.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 

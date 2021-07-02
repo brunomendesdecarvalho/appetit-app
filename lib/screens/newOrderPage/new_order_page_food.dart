@@ -8,6 +8,7 @@ import 'package:page_transition/page_transition.dart';
 
 import 'components/back_button.dart';
 import 'components/search.dart';
+import 'new_order_page_client.dart';
 
 class NewOrderPage extends StatefulWidget {
   static String tag = 'new-order-page';
@@ -30,7 +31,7 @@ class _NewOrderPageState extends State<NewOrderPage> {
           children: [
             TitleText('Informações para o pedido'),
             DescriptionText('Preencha as informações abaixo para concluir o pedido.'),
-            ProgressBarAndText(),
+            ProgressBarAndText('O que você está vendendo?', '1 de 3', 33),
             search(),
             FoodsWidget(),
           ],
@@ -72,13 +73,15 @@ class AdvanceBar extends StatelessWidget {
               color: Colors.white,
               size: 12,
             ), onPressed: () {
-            // // Navigator.push(
-            // //     context,
-            // //     PageTransition(
-            // //         type: PageTransitionType.topToBottom,
-            // //         child: ClientsPage()
-            //     )
-            // );
+            Navigator.push(
+                context,
+                PageTransition(
+                    type: PageTransitionType.rightToLeft,
+                    duration: Duration(milliseconds: 500),
+                    reverseDuration: Duration(milliseconds: 500),
+                    child: ClientsPage()
+                )
+            );
           },
           ),
         ],
