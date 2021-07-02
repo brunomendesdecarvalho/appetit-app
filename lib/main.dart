@@ -1,10 +1,10 @@
-import 'package:appetit/screens/newOrderPage/new-order.dart';
+import 'package:appetit/screens/newOrderPage/new_order_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter/services.dart';
 import 'utils/theme.dart';
-import 'screens/loginPage/login-page.dart';
-import 'screens/homePage/home-page.dart';
+import 'screens/loginPage/login_page.dart';
+import 'screens/homePage/home_page.dart';
 
 void main() => runApp(Appetit());
 

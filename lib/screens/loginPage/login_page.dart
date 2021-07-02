@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:reactive_forms/reactive_forms.dart';
 import '/utils/theme.dart';
-import 'components/login-form.dart';
-import 'components/login-header.dart';
+import 'components/login_form.dart';
+import 'components/login_header.dart';
 
 class LoginPage extends StatefulWidget {
   static String tag = 'login-page';

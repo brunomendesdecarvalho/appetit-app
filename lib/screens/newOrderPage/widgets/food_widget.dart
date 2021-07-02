@@ -1,6 +1,8 @@
 import 'dart:ui';
 
+import 'package:appetit/screens/newOrderPage/widgets/food_detail_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:page_transition/page_transition.dart';
 
 class FoodsWidget extends StatefulWidget {
   @override
@@ -49,7 +51,13 @@ class FoodTiles extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        // Navigator.push(context, ScaleRoute(page: FoodDetailsPage()));
+        Navigator.push(
+            context,
+            PageTransition(
+                type: PageTransitionType.leftToRightWithFade,
+                child: FoodDetailsPage()
+            )
+        );
       },
       child: Column(
         children: <Widget>[
@@ -130,7 +138,6 @@ class FoodItemsCuscuz extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListView(
-      scrollDirection: Axis.vertical,
       children: <Widget>[
         FoodTiles(
             name: "Cuscuz simples",
@@ -174,7 +181,6 @@ class FoodItemsPaes extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListView(
-      scrollDirection: Axis.vertical,
       children: <Widget>[
         FoodTiles(
             name: "Pão caseiro",

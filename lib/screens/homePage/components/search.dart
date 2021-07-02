@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 
 Padding search() {
   return Padding(
-    padding: const EdgeInsets.all(8.0),
+    padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
     child: TextField(
       onChanged: (value) {
         // filterSearchResults(value);

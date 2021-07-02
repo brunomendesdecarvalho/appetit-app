@@ -1,10 +1,10 @@
-import 'package:appetit/screens/newOrderPage/widgets/food.dart';
-import 'package:appetit/screens/newOrderPage/components/progress-bar.dart';
+import 'package:appetit/screens/newOrderPage/widgets/food_widget.dart';
+import 'package:appetit/screens/newOrderPage/components/progress_bar.dart';
+import 'package:appetit/utils/title_text.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-import 'components/back-button.dart';
-import 'components/order-text.dart';
+import 'components/back_button.dart';
 import 'components/search.dart';
 
 class NewOrderPage extends StatefulWidget {
@@ -25,9 +25,9 @@ class _NewOrderPageState extends State<NewOrderPage> {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            orderText(),
-            bottomLine(),
-            descriptionText(),
+            TitleText('Informações para o pedido'),
+            // bottomLine(),
+            DescriptionText('Preencha as informações abaixo para concluir o pedido.'),
             ProgressBarAndText(),
             search(),
             FoodsWidget(),

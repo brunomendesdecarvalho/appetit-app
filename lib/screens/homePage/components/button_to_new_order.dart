@@ -1,9 +1,11 @@
-import 'package:appetit/screens/newOrderPage/new-order.dart';
+import 'package:appetit/screens/newOrderPage/new_order_page.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 InkWell orderButton(context) {
   return InkWell(
     child: Card(
+      margin: EdgeInsets.only(left: 16, right: 16),
       elevation: 1,
       child: Column(
         mainAxisSize: MainAxisSize.min,
