@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:group_list_view/group_list_view.dart';
 
-GroupListView createCard() {
+GroupListView CreateList() {
   Map<String, List> _elements = {
     '23/10': ['Klay Lewis', 'Ehsan Woodard', 'River Bains'],
     '22/10': ['Toyah Downs', 'Tyla Kane', 'abc'],
@@ -16,7 +16,7 @@ GroupListView createCard() {
     itemBuilder: (BuildContext context, IndexPath index) {
       return ListTile(
         leading: CircleAvatar(
-          backgroundImage: AssetImage('assets/foto.jpg'),
+          backgroundImage: AssetImage('assets/rick_sanchez.jpg'),
         ),
         title:
         new Row(

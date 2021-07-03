@@ -12,20 +12,17 @@ class FoodsWidget extends StatefulWidget {
 class _FoodsWidgetState extends State<FoodsWidget> {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: 450,
-      width: double.infinity,
-      child: Column(
-        children: <Widget>[
-          FoodTitleCuscuz(),
-          Expanded(
-            child: FoodItemsCuscuz(),
-          ),
-          FoodTitlePaes(),
-          Expanded(
-            child: FoodItemsPaes(),
-          ),
-        ],
+    return SingleChildScrollView(
+      child: Container(
+        width: double.infinity,
+        child: Column(
+          children: <Widget>[
+            FoodTitleCuscuz(),
+            FoodItemsCuscuz(),
+            FoodTitlePaes(),
+            FoodItemsPaes(),
+          ],
+        ),
       ),
     );
   }
@@ -139,7 +136,7 @@ class FoodTitleCuscuz extends StatelessWidget {
 class FoodItemsCuscuz extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return ListView(
+    return Column(
       children: <Widget>[
         FoodTiles(
             name: "Cuscuz simples",
@@ -182,7 +179,7 @@ class FoodTitlePaes extends StatelessWidget {
 class FoodItemsPaes extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return ListView(
+    return Column(
       children: <Widget>[
         FoodTiles(
             name: "Pão caseiro",

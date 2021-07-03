@@ -32,7 +32,6 @@ class EndOfOrderPage extends StatelessWidget {
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(24),
                 ),
-                // onPressed: (date == null) ? () => {} : null,
                 onPressed: () => {
                   Navigator.push(
                       context,

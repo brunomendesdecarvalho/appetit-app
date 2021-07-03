@@ -1,7 +1,7 @@
 import 'package:appetit/screens/homePage/components/button_to_new_order.dart';
 import 'package:appetit/utils/title_text.dart';
 import 'package:flutter/material.dart';
-import 'components/orders_card.dart';
+import 'components/orders_history.dart';
 import 'components/search.dart';
 
 class HomePage extends StatefulWidget {
@@ -29,7 +29,7 @@ class _HomePageState extends State<HomePage> {
                 orderButton(context),
                 search(),
                 Container(
-                  child: createCard(),
+                  child: CreateList(),
                 ),
               ],
             ),

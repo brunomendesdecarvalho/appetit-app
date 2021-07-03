@@ -67,6 +67,7 @@ class AdvanceBar extends StatelessWidget {
                 fontWeight: FontWeight.w400),
           ),
           IconButton(
+            splashRadius: 10,
             icon: Icon(
               Icons.arrow_forward_ios,
               color: Colors.white,
