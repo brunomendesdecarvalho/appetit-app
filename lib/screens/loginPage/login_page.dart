@@ -27,7 +27,6 @@ class _LoginPageState extends State<LoginPage> {
       obscureText: (campo == 'E-mail') ? false : _obscureText,
       decoration: InputDecoration(
         labelText: campo,
-        contentPadding: EdgeInsets.fromLTRB(16.0, 16.0, 16.0, 40.0),
         border: OutlineInputBorder(borderRadius: BorderRadius.circular(4.0)),
         focusedBorder: OutlineInputBorder(
           borderSide: BorderSide(color: getCorTema(), width: 2.0),
@@ -74,7 +73,7 @@ class _LoginPageState extends State<LoginPage> {
             title,
             subtitle,
             SizedBox(height: 48.0),
-            buildForm(email, password),
+            BuildForm(email, password),
             forgotLabel
           ],
         ),

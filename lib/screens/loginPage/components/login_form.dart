@@ -7,7 +7,7 @@ final form = fb.group({
   'password': ['', Validators.required, Validators.minLength(8), Validators.equals('12345678')],
 });
 
-ReactiveForm buildForm(ReactiveTextField email, ReactiveTextField senha) {
+ReactiveForm BuildForm(ReactiveTextField email, ReactiveTextField senha) {
   return ReactiveForm (
     formGroup: form,
     child: Column(
