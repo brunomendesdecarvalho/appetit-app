@@ -1,20 +1,17 @@
+import 'dart:ui';
+
 import 'package:appetit/screens/endPage/order_finished.dart';
-import 'package:appetit/screens/homePage/components/button_to_new_order.dart';
 import 'package:appetit/screens/homePage/components/option_button.dart';
-import 'package:appetit/screens/newOrderPage/widgets/client_widget.dart';
 import 'package:appetit/screens/newOrderPage/components/progress_bar_and_text.dart';
 import 'package:appetit/utils/theme.dart';
 import 'package:appetit/utils/title_text.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:flutter_material_pickers/helpers/show_date_picker.dart';
 import 'package:page_transition/page_transition.dart';
 import 'package:intl/intl.dart';
 
 import 'components/back_button.dart';
-import 'components/button_to_select_date.dart';
-import 'components/search.dart';
 
 class DateOfPaymentPage extends StatefulWidget {
   static String tag = 'date-of-payment-page';
@@ -26,6 +23,9 @@ class DateOfPaymentPage extends StatefulWidget {
 
 class _DateOfPaymentPageState extends State<DateOfPaymentPage> {
   DateTime date = DateTime.now().subtract(Duration(days:1));
+  bool yesIsChecked = false;
+  bool noIsChecked = false;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -47,10 +47,88 @@ class _DateOfPaymentPageState extends State<DateOfPaymentPage> {
                   )
               ),
             ),
-
-            OptionButton(context, 'Sim'),
+            Card(
+              margin: EdgeInsets.only(left: 16, right: 16),
+              elevation: 1,
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: <Widget>[
+                    ListTile(
+                    // leading: Icon(Icons.circle_outlined, color: Color(0xFFFF8822)),
+                    leading: Checkbox(
+                      checkColor: Colors.white,
+                      value: yesIsChecked,
+                      onChanged: (bool? value) {
+                        if(!noIsChecked) {
+                          setState(() {
+                            yesIsChecked = value!;
+                          });
+                        } else if (noIsChecked) {
+                          setState(() {
+                            noIsChecked = !noIsChecked;
+                            yesIsChecked = value!;
+                          });
+                        }
+                      },
+                      shape: CircleBorder(),
+                      side: BorderSide(color: getCorTema())
+                    ),
+                    title: Transform.translate(
+                      offset: Offset(-20, 0),
+                      child: Text(
+                        'Sim',
+                        style: TextStyle(
+                          fontSize: 14.0,
+                          color: Colors.black54
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+            ),
             SizedBox(height: 8.0,),
-            OptionButton(context, 'Não'),
+            Card(
+              margin: EdgeInsets.only(left: 16, right: 16),
+              elevation: 1,
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: <Widget>[
+                  ListTile(
+                    // leading: Icon(Icons.circle_outlined, color: Color(0xFFFF8822)),
+                    leading: Checkbox(
+                      checkColor: Colors.white,
+                      value: noIsChecked,
+                      onChanged: (bool? value) {
+                        if(!yesIsChecked) {
+                          setState(() {
+                            noIsChecked = value!;
+                          });
+                        } else if (yesIsChecked) {
+                          setState(() {
+                            yesIsChecked = !yesIsChecked;
+                            noIsChecked = value!;
+                          });
+                        }
+                      },
+                      shape: CircleBorder(),
+                      side: BorderSide(color: getCorTema())
+                    ),
+                    title: Transform.translate(
+                      offset: Offset(-20, 0),
+                      child: Text(
+                        'Não',
+                        style: TextStyle(
+                            fontSize: 14.0,
+                            color: Colors.black54
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+
             Container(
               alignment: Alignment.centerLeft,
               padding: EdgeInsets.only(left: 16.0, top: 24.0, bottom: 16.0),
@@ -101,7 +179,7 @@ class _DateOfPaymentPageState extends State<DateOfPaymentPage> {
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(24),
                 ),
-                onPressed: (date.isBefore(DateTime.now())) ? null : () => {
+                onPressed: (date.isBefore(DateTime.now()) && (!yesIsChecked || !noIsChecked)) ? null : () => {
                   Navigator.push(
                       context,
                       PageTransition(
