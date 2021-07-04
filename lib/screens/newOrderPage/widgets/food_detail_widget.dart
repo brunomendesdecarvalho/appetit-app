@@ -147,10 +147,6 @@ class _FoodDetailsPageState extends State<FoodDetailsPage> {
                     ),
                   ],
                 ),
-                // SizedBox(
-                //   height: 15,
-                // ),
-                // BottomMenu(),
               ],
             ),
           ),

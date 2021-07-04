@@ -38,7 +38,6 @@ class EndOfOrderPage extends StatelessWidget {
                       PageTransition(
                           type: PageTransitionType.fade,
                           duration: Duration(milliseconds: 500),
-                          // reverseDuration: Duration(milliseconds: 500),
                           child: NewOrderPage()
                       )
                   )
@@ -63,7 +62,6 @@ class EndOfOrderPage extends StatelessWidget {
                       PageTransition(
                           type: PageTransitionType.fade,
                           duration: Duration(milliseconds: 500),
-                          // reverseDuration: Duration(milliseconds: 500),
                           child: HomePage()
                       )
                   )
