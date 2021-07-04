@@ -32,7 +32,7 @@ class FoodTiles extends StatelessWidget {
   String name;
   String imageUrl;
   String description;
-  String price;
+  double price;
   String slug;
 
   FoodTiles(
@@ -54,7 +54,7 @@ class FoodTiles extends StatelessWidget {
                 type: PageTransitionType.bottomToTop,
                 duration: Duration(milliseconds: 500),
                 reverseDuration: Duration(milliseconds: 500),
-                child: FoodDetailsPage()
+                child: FoodDetailsPage(name: this.name, imageUrl: this.imageUrl, price: this.price)
             )
         );
       },
@@ -84,7 +84,7 @@ class FoodTiles extends StatelessWidget {
                                 ),
                             Container(
                               padding: EdgeInsets.only(top: 19),
-                              child: Text('R\$' + price,
+                              child: Text('R\$ ${price}',
                                 style: TextStyle(
                                     fontSize: 16
                                 ),
@@ -142,13 +142,13 @@ class FoodItemsCuscuz extends StatelessWidget {
             name: "Cuscuz simples",
             imageUrl: "cuscuz_simples.jpg",
             description: "Milho ou arroz",
-            price: '2,25',
+            price: 2.25,
             slug: "cuscuz_simples"),
         FoodTiles(
             name: "Cuscuz completo",
             imageUrl: 'cuscuz_completo.jpg',
             description: "Milho ou arroz",
-            price: "3,25",
+            price: 3.25,
             slug: "cuscuz_completo"),
       ],
     );
@@ -185,31 +185,31 @@ class FoodItemsPaes extends StatelessWidget {
             name: "Pão caseiro",
             imageUrl: "pao_caseiro.jpg",
             description: "",
-            price: '2,25',
+            price: 2.25,
             slug: "pao_caseiro"),
         FoodTiles(
             name: "Pão caseiro completo",
             imageUrl: 'pao_caseiro_completo.jpg',
             description: "",
-            price: "3,25",
+            price: 3.25,
             slug: "pao_caseiro_completo"),
         FoodTiles(
             name: "Misto quente",
             imageUrl: 'misto_quente.jpg',
             description: "",
-            price: "3,00",
+            price: 3.00,
             slug: "misto_quente"),
         FoodTiles(
             name: "Língua de sogra (pq.)",
             imageUrl: 'lingua_de_sogra.jpg',
             description: "",
-            price: "2,00",
+            price: 2.00,
             slug: "lingua_de_sogra"),
         FoodTiles(
             name: "Língua de sogra (gr.)",
             imageUrl: 'lingua_de_sogra_grande.jpg',
             description: "",
-            price: "3,00",
+            price: 3.00,
             slug: "lingua_de_sogra_grande"),
       ],
     );

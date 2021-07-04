@@ -8,8 +8,18 @@ import 'package:page_transition/page_transition.dart';
 import '../new_order_page_food.dart';
 
 class FoodDetailsPage extends StatefulWidget {
+  final String imageUrl;
+  final String name;
+  final double price;
+
   @override
   _FoodDetailsPageState createState() => _FoodDetailsPageState();
+  FoodDetailsPage({
+    Key? key,
+    required this.name,
+    required this.imageUrl,
+    required this.price,
+  }) : super(key: key);
 }
 
 class _FoodDetailsPageState extends State<FoodDetailsPage> {
@@ -50,19 +60,19 @@ class _FoodDetailsPageState extends State<FoodDetailsPage> {
                             children: <Widget>[
                               ListTile(
                                 leading: CircleAvatar(
-                                  backgroundImage: AssetImage('assets/cuscuz_completo.jpg'),
+                                  backgroundImage: AssetImage('assets/${widget.imageUrl}'),
                                 ),
                                 title: Row(
                                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                   children: [
-                                    Text('Cuscuz Completo',
+                                    Text(widget.name,
                                         style: TextStyle(
                                           fontSize: 16,
                                         )
                                     ),
                                     Container(
                                       padding: EdgeInsets.only(top: 19),
-                                      child: Text('R\$ 3,25',
+                                      child: Text('R\$ ${widget.price}',
                                         style: TextStyle(
                                             fontSize: 16
                                         ),
@@ -70,12 +80,12 @@ class _FoodDetailsPageState extends State<FoodDetailsPage> {
                                     )
                                   ],
                                 ),
-                                subtitle: Text('Milho ou arroz',
+                                subtitle: (widget.name.contains('Cuscuz')) ? Text('Milho ou arroz',
                                     style: TextStyle(
                                       color: Colors.black54,
                                       fontSize: 16,
                                     )
-                                ),
+                                ) : null,
                               )
                             ],
                           ),
@@ -112,9 +122,9 @@ class _FoodDetailsPageState extends State<FoodDetailsPage> {
                     ),
                   ],
                 ),
-                OptionButton(context, 'Cuscuz de milho'),
+                (widget.name.contains('Cuscuz')) ? OptionButton(context, 'Cuscuz de milho') : OptionButton(context, 'Massa fina'),
                 SizedBox(height: 8.0,),
-                OptionButton(context, 'Cuscuz de arroz'),
+                (widget.name.contains('Cuscuz')) ? OptionButton(context, 'Cuscuz de arroz') : OptionButton(context, 'Massa grossa'),
                 Column(
                   children: [
                     Container(

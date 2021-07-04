@@ -14,16 +14,16 @@ class ClientsPage extends StatefulWidget {
   static String tag = 'clients-page';
   ClientsPage({Key? key}) : super(key: key);
 
+  get isClicked => null;
+
   @override
   _ClientsPageState createState() => _ClientsPageState();
 }
 
 class _ClientsPageState extends State<ClientsPage> {
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-
       resizeToAvoidBottomInset: false,
       appBar: backButton(context),
       body: SingleChildScrollView(
@@ -42,12 +42,18 @@ class _ClientsPageState extends State<ClientsPage> {
         child: Icon(Icons.add),
         backgroundColor: getCorTema(),
       ),
-      bottomNavigationBar: AdvanceBar(),
+      bottomNavigationBar: AdvanceBar()
     );
   }
 }
 
-class AdvanceBar extends StatelessWidget {
+class AdvanceBar extends StatefulWidget {
+  @override
+  _AdvanceBarState createState() => _AdvanceBarState();
+}
+
+class _AdvanceBarState extends State<AdvanceBar> {
+  bool? _isClicked = key.currentState?.isClicked;
   @override
   Widget build(BuildContext context) {
     return BottomAppBar(

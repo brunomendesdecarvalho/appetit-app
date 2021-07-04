@@ -3,6 +3,8 @@ import 'dart:ui';
 import 'package:appetit/utils/theme.dart';
 import 'package:flutter/material.dart';
 
+final key = new GlobalKey<_ClientTilesState>();
+
 class ClientsWidget extends StatefulWidget {
   @override
   _ClientsWidgetState createState() => _ClientsWidgetState();
@@ -27,10 +29,10 @@ class _ClientsWidgetState extends State<ClientsWidget> {
 }
 
 class ClientTiles extends StatefulWidget {
-  String name;
-  String imageUrl;
+  final String name;
+  final String imageUrl;
 
-  ClientTiles(
+  const ClientTiles(
       {Key? key,
         required this.name,
         required this.imageUrl,
@@ -43,11 +45,15 @@ class ClientTiles extends StatefulWidget {
 
 class _ClientTilesState extends State<ClientTiles> {
   bool _isClicked = false;
+  bool get isClicked => _isClicked;
+
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () => setState(() => this._isClicked = !this._isClicked),
+      onTap: () => setState(() => {
+        this._isClicked = !this._isClicked,
+      }),
       child: Column(
         children: <Widget>[
           Container(
@@ -92,19 +98,21 @@ class _ClientTilesState extends State<ClientTiles> {
 class ClientTitle extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: EdgeInsets.only(left: 16, right: 290, top: 23, bottom: 16),
-      child: Container(
-              child: Text(
-                  "Meus clientes",
-                  style: TextStyle(
-                      fontSize: 16,
-                      color: Colors.black,
-                      fontWeight: FontWeight.bold
-              ),
-            ),
-          )
-
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.start,
+      children: [
+        Padding(
+          padding: EdgeInsets.only(left: 16.0),
+          child: Text(
+              "Meus clientes",
+              style: TextStyle(
+                  fontSize: 16,
+                  color: Colors.black,
+                  fontWeight: FontWeight.bold
+          ),
+                ),
+        ),
+      ],
     );
   }
 }
