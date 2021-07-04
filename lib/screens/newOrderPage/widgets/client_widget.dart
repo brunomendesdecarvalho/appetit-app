@@ -1,5 +1,6 @@
 import 'dart:ui';
 
+import 'package:appetit/utils/theme.dart';
 import 'package:flutter/material.dart';
 
 class ClientsWidget extends StatefulWidget {
@@ -25,7 +26,7 @@ class _ClientsWidgetState extends State<ClientsWidget> {
   }
 }
 
-class ClientTiles extends StatelessWidget {
+class ClientTiles extends StatefulWidget {
   String name;
   String imageUrl;
 
@@ -37,17 +38,22 @@ class ClientTiles extends StatelessWidget {
       : super(key: key);
 
   @override
+  _ClientTilesState createState() => _ClientTilesState();
+}
+
+class _ClientTilesState extends State<ClientTiles> {
+  bool _isClicked = false;
+
+  @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () {
-
-      },
+      onTap: () => setState(() => this._isClicked = !this._isClicked),
       child: Column(
         children: <Widget>[
           Container(
             padding: EdgeInsets.only(left: 10, right: 5, top: 5, bottom: 5),
             child: Card(
-                color: Colors.white,
+                color: (this._isClicked) ? getCorTema() : Colors.white,
                 elevation: 0,
                 child: Container(
                   child: Column(
@@ -56,14 +62,15 @@ class ClientTiles extends StatelessWidget {
                         children: <Widget>[
                           ListTile(
                             leading: CircleAvatar(
-                              backgroundImage: AssetImage('assets/' + imageUrl),
+                              backgroundImage: AssetImage('assets/' + widget.imageUrl),
                             ),
                             title: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
-                                Text(name,
+                                Text(widget.name,
                                     style: TextStyle(
                                       fontSize: 16,
+                                      color: (this._isClicked) ? Colors.white : Colors.black87,
                                     )
                                 ),
                               ],
