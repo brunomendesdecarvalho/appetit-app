@@ -1,4 +1,4 @@
-import 'package:appetit/screens/homePage/components/option_button.dart';
+import 'package:appetit/utils/price_format_real.dart';
 import 'package:appetit/utils/theme.dart';
 import 'package:appetit/utils/title_text.dart';
 import 'package:flutter/cupertino.dart';
@@ -23,12 +23,13 @@ class FoodDetailsPage extends StatefulWidget {
 }
 
 class _FoodDetailsPageState extends State<FoodDetailsPage> {
+    bool firstIsChecked = false;
+    bool secondIsChecked = false;
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
       length: 2,
       child: Scaffold(
-        bottomNavigationBar: AddToCartMenu(),
         resizeToAvoidBottomInset: false,
         backgroundColor: Colors.white,
         appBar: AppBar(
@@ -36,9 +37,10 @@ class _FoodDetailsPageState extends State<FoodDetailsPage> {
           elevation: 0,
           leading: IconButton(
             icon: Icon(
-              Icons.arrow_back,
+              Icons.arrow_back_ios,
               color: getCorTema(),
             ),
+            splashRadius: 20,
             onPressed: () => Navigator.of(context).pop(),
           ),
         ),
@@ -72,7 +74,7 @@ class _FoodDetailsPageState extends State<FoodDetailsPage> {
                                     ),
                                     Container(
                                       padding: EdgeInsets.only(top: 19),
-                                      child: Text('R\$ ${widget.price}',
+                                      child: Text('R\$ ${realFormat.format(widget.price)}',
                                         style: TextStyle(
                                             fontSize: 16
                                         ),
@@ -122,9 +124,85 @@ class _FoodDetailsPageState extends State<FoodDetailsPage> {
                     ),
                   ],
                 ),
-                (widget.name.contains('Cuscuz')) ? OptionButton(context, 'Cuscuz de milho') : OptionButton(context, 'Massa fina'),
+                Card(
+                  margin: EdgeInsets.only(left: 16, right: 16),
+                  elevation: 1,
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: <Widget>[
+                      ListTile(
+                        leading: Checkbox(
+                            checkColor: Colors.white,
+                            value: secondIsChecked,
+                            onChanged: (bool? value) {
+                              if(!firstIsChecked) {
+                                setState(() {
+                                  secondIsChecked = value!;
+                                });
+                              } else if (firstIsChecked) {
+                                setState(() {
+                                  firstIsChecked = !firstIsChecked;
+                                  secondIsChecked = value!;
+                                });
+                              }
+                            },
+                            shape: CircleBorder(),
+                            side: BorderSide(color: getCorTema())
+                        ),
+                        title: Transform.translate(
+                          offset: Offset(-20, 0),
+                          child: Text(
+                            widget.name.contains('Cuscuz') ? 'Cuscuz de milho' : 'Massa fina',
+                            style: TextStyle(
+                                fontSize: 14.0,
+                                color: Colors.black54
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
                 SizedBox(height: 8.0,),
-                (widget.name.contains('Cuscuz')) ? OptionButton(context, 'Cuscuz de arroz') : OptionButton(context, 'Massa grossa'),
+                Card(
+                  margin: EdgeInsets.only(left: 16, right: 16),
+                  elevation: 1,
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: <Widget>[
+                      ListTile(
+                        leading: Checkbox(
+                            checkColor: Colors.white,
+                            value: firstIsChecked,
+                            onChanged: (bool? value) {
+                              if(!secondIsChecked) {
+                                setState(() {
+                                  firstIsChecked = value!;
+                                });
+                              } else if (secondIsChecked) {
+                                setState(() {
+                                  secondIsChecked = !secondIsChecked;
+                                  firstIsChecked = value!;
+                                });
+                              }
+                            },
+                            shape: CircleBorder(),
+                            side: BorderSide(color: getCorTema())
+                        ),
+                        title: Transform.translate(
+                          offset: Offset(-20, 0),
+                          child: Text(
+                            widget.name.contains('Cuscuz') ? 'Cuscuz de arroz' : 'Massa grossa',
+                            style: TextStyle(
+                                fontSize: 14.0,
+                                color: Colors.black54
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
                 Column(
                   children: [
                     Container(
@@ -151,12 +229,26 @@ class _FoodDetailsPageState extends State<FoodDetailsPage> {
             ),
           ),
         ),
+        bottomNavigationBar: (firstIsChecked || secondIsChecked) ? AddToCartMenu(price: widget.price) : null,
       ),
     );
   }
 }
 
-class AddToCartMenu extends StatelessWidget {
+class AddToCartMenu extends StatefulWidget {
+  double price;
+
+  AddToCartMenu({
+    Key? key,
+    required this.price,
+  }) : super(key: key);
+
+  @override
+  _AddToCartMenuState createState() => _AddToCartMenuState();
+}
+
+class _AddToCartMenuState extends State<AddToCartMenu> {
+  int quantity = 1;
   @override
   Widget build(BuildContext context) {
     return BottomAppBar(
@@ -165,15 +257,21 @@ class AddToCartMenu extends StatelessWidget {
         children: [
           IconButton(
             splashRadius: 10,
-            onPressed: () {},
+            onPressed: () {
+              if (this.quantity > 1) {
+                setState(() {
+                  this.quantity--;
+                });
+              }
+            },
             icon: Icon(Icons.remove),
             color: Colors.black12,
             iconSize: 16,
           ),
-          Text('1'),
+          Text('${this.quantity}'),
           IconButton(
             splashRadius: 10,
-            onPressed: () {},
+            onPressed: () {setState((){this.quantity++;});},
             icon: Icon(Icons.add),
             color: getCorTema(),
             iconSize: 16,
@@ -214,7 +312,7 @@ class AddToCartMenu extends StatelessWidget {
                     ),
 
                     Text(
-                      'R\$ 3,25',
+                      'R\$ ${realFormat.format(this.quantity * widget.price)}',
                       style: new TextStyle(
                           fontSize: 14.0,
                           color: Colors.white,
@@ -230,88 +328,3 @@ class AddToCartMenu extends StatelessWidget {
     );
   }
 }
-
-// class AddToCartMenu extends StatelessWidget {
-//   @override
-//   Widget build(BuildContext context) {
-//     return Container(
-//       padding: EdgeInsets.only(top: 5),
-//       child: Center(
-//         child: Row(
-//           children: [
-//             BottomAppBar(
-//               child: Row(
-//                 children: <Widget>[
-//                 Padding(
-//                   padding: EdgeInsets.only(left: 4, right: 20),
-//                   child: IconButton(
-//                     onPressed: () {},
-//                     icon: Icon(Icons.remove),
-//                     color: Colors.black12,
-//                     iconSize: 16,
-//                   ),
-//                 ),
-//                 Text('1'),
-//                 Padding(
-//                   padding: EdgeInsets.only(left: 20, right: 44),
-//                   child: IconButton(
-//                     onPressed: () {},
-//                     icon: Icon(Icons.add),
-//                     color: getCorTema(),
-//                     iconSize: 16,
-//                   ),
-//                 ),
-//                 Padding(
-//                   padding: EdgeInsets.only(top: 10, right: 16, bottom: 10),
-//                   child: InkWell(
-//                     onTap: () {
-//                       Navigator.pop(
-//                           context,
-//                           PageTransition(
-//                               type: PageTransitionType.topToBottom,
-//                               child: NewOrderPage()
-//                           )
-//                       );
-//                     },
-//                     child: Container(
-//                       width: 184.0,
-//                       height: 48.0,
-//                       decoration: new BoxDecoration(
-//                         color: getCorTema(),
-//                         borderRadius: BorderRadius.circular(5.0),
-//                       ),
-//                       child: Center(
-//                         child: Row(
-//                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-//                           children: [
-//                             Text(
-//                               'Adicionar',
-//                               style: new TextStyle(
-//                                   fontSize: 14.0,
-//                                   color: Colors.white,
-//                                   fontWeight: FontWeight.w400),
-//                             ),
-//                             Text(
-//                               'R\$ 3,25',
-//                               style: new TextStyle(
-//                                   fontSize: 14.0,
-//                                   color: Colors.white,
-//                                   fontWeight: FontWeight.w400),
-//                             ),
-//                           ],
-//                         ),
-//                       ),
-//                     ),
-//                   ),
-//                 ),
-//
-//                 ]
-//               )
-//
-//             ),
-//           ],
-//         ),
-//       ),
-//     );
-//   }
-// }

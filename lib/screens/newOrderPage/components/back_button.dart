@@ -9,6 +9,7 @@ AppBar backButton(context) {
           Icons.arrow_back_ios,
           color: Color(0xFFFF8822)
       ),
+      splashRadius: 20,
       onPressed: () => {
         Navigator.of(context).pop()
       },

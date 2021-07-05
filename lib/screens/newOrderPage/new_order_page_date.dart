@@ -1,7 +1,6 @@
 import 'dart:ui';
 
 import 'package:appetit/screens/endPage/order_finished.dart';
-import 'package:appetit/screens/homePage/components/option_button.dart';
 import 'package:appetit/screens/newOrderPage/components/progress_bar_and_text.dart';
 import 'package:appetit/utils/theme.dart';
 import 'package:appetit/utils/title_text.dart';

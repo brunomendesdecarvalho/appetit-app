@@ -1,6 +1,7 @@
 import 'dart:ui';
 
 import 'package:appetit/screens/newOrderPage/widgets/food_detail_widget.dart';
+import 'package:appetit/utils/price_format_real.dart';
 import 'package:flutter/material.dart';
 import 'package:page_transition/page_transition.dart';
 
@@ -17,9 +18,9 @@ class _FoodsWidgetState extends State<FoodsWidget> {
         width: double.infinity,
         child: Column(
           children: <Widget>[
-            FoodTitleCuscuz(),
+            FoodTitle(title: 'Cuscuz'),
             FoodItemsCuscuz(),
-            FoodTitlePaes(),
+            FoodTitle(title: 'Pães'),
             FoodItemsPaes(),
           ],
         ),
@@ -33,7 +34,6 @@ class FoodTiles extends StatelessWidget {
   String imageUrl;
   String description;
   double price;
-  String slug;
 
   FoodTiles(
       {Key? key,
@@ -41,7 +41,7 @@ class FoodTiles extends StatelessWidget {
         required this.imageUrl,
         required this.description,
         required this.price,
-        required this.slug})
+      })
       : super(key: key);
 
   @override
@@ -84,7 +84,7 @@ class FoodTiles extends StatelessWidget {
                                 ),
                             Container(
                               padding: EdgeInsets.only(top: 19),
-                              child: Text('R\$ ${price}',
+                              child: Text('R\$ ${realFormat.format(price)}',
                                 style: TextStyle(
                                     fontSize: 16
                                 ),
@@ -111,7 +111,14 @@ class FoodTiles extends StatelessWidget {
   }
 }
 
-class FoodTitleCuscuz extends StatelessWidget {
+class FoodTitle extends StatelessWidget {
+  String title;
+
+  FoodTitle({
+    Key? key,
+    required this.title,
+  }) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -120,7 +127,7 @@ class FoodTitleCuscuz extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: <Widget>[
           Text(
-            "Cuscuz",
+            "${this.title}",
             style: TextStyle(
                 fontSize: 16,
                 color: Colors.black,
@@ -143,13 +150,13 @@ class FoodItemsCuscuz extends StatelessWidget {
             imageUrl: "cuscuz_simples.jpg",
             description: "Milho ou arroz",
             price: 2.25,
-            slug: "cuscuz_simples"),
+           ),
         FoodTiles(
             name: "Cuscuz completo",
             imageUrl: 'cuscuz_completo.jpg',
             description: "Milho ou arroz",
             price: 3.25,
-            slug: "cuscuz_completo"),
+            ),
       ],
     );
   }
@@ -186,31 +193,31 @@ class FoodItemsPaes extends StatelessWidget {
             imageUrl: "pao_caseiro.jpg",
             description: "",
             price: 2.25,
-            slug: "pao_caseiro"),
+            ),
         FoodTiles(
             name: "Pão caseiro completo",
             imageUrl: 'pao_caseiro_completo.jpg',
             description: "",
             price: 3.25,
-            slug: "pao_caseiro_completo"),
+            ),
         FoodTiles(
             name: "Misto quente",
             imageUrl: 'misto_quente.jpg',
             description: "",
             price: 3.00,
-            slug: "misto_quente"),
+            ),
         FoodTiles(
             name: "Língua de sogra (pq.)",
             imageUrl: 'lingua_de_sogra.jpg',
             description: "",
-            price: 2.00,
-            slug: "lingua_de_sogra"),
+            price: 2.00
+        ),
         FoodTiles(
             name: "Língua de sogra (gr.)",
             imageUrl: 'lingua_de_sogra_grande.jpg',
             description: "",
-            price: 3.00,
-            slug: "lingua_de_sogra_grande"),
+            price: 3.00
+        ),
       ],
     );
   }
