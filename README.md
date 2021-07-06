@@ -7,7 +7,7 @@ O aplicativo visa realizar vendas de produtos de uma cafeteria fictícia chamada
 
 ### Descrição do Fluxo:
 O usuário inicia a página na tela de Login, onde deve inserir um e-mail e uma senha válidos, para que o botão de login seja habilitado. As validações são:
-- Para o e-mail: se é válido (email@email.com), se é igual ao e-mail padrão utilizado para os testes no aplicativo (teste@teste.com);
+- Para o e-mail: se é válido (formato email@dominio.com), se é igual ao e-mail padrão utilizado para os testes no aplicativo (teste@teste.com);
 - Para a senha: se possui, no mínimo, 6 caracteres; se é igual à senha padrão utilizada para os testes no aplicativo (123456);
 
 Para a realização do formulário, foi utilizada o pacote [Reactive Forms](https://pub.dev/packages/reactive_forms).
@@ -33,5 +33,50 @@ Até a data da escrita desse Readme.md, o projeto basicamente consiste em alguma
 - newOrderPage, onde estão as páginas associadas ao pedido: lista de produtos, lista de clientes e seleção de data. Além disso, há uma pasta components com alguns componentes úteis e uma pasta widgets, com alguns widgets importantes;
 - endPage, onde se encontra a página de feedback do pedido.
 
+Não foi utilizado um padrão específico de projeto, tal como MVC, MVVM ou BloC. 
+
 ### Pacotes utilizados:
 
+As dependências que se encontram no arquivo pubspect.yaml, são as seguintes:
+- group_list_view: ^1.1.1
+- reactive_forms: ^10.4.1
+- flutter_animation_progress_bar: ^2.0.0
+- page_transition: ^2.0.2
+- flutter_form_builder: ^6.0.1
+- flutter_material_pickers: ^3.1.0
+- grouped_buttons: ^1.0.4
+- get: ^4.1.4
+- flutter_localizations:
+    sdk: flutter
+- flutter_rounded_date_picker: 2.0.2
+
+### Bugs Conhecidos:
+- Ao selecionar a primeira opção (realizar novo pedido) na página final, os cards selecionados permanecem laranjas, embora o preço seja resetado normalmente.
+
+### Como Rodar o Projeto:
+
+Antes de mais nada, é preciso copiar esse repositório para o computador. Para isso, de posse do Git instalado e configurado no computador, abra um terminal de preferência, na pasta desejada, e digite a seguinte linha de comando:
+```
+git clone https://github.com/brunomendesdecarvalho/appetit-app.git
+```
+O repositório será todo copiado para a pasta onde o terminal está aberto.
+
+Um primeiro passo interessante a se fazer, antes de iniciar o projeto propriamente dito, é rodar o flutter doctor, para averiguar se todos os requisitos para iniciar a aplicação estão satisfeitos:
+```
+flutter doctor
+```
+Caso haja algum problema, acesse este [link](https://flutter.dev/docs/get-started/install) para realizar a instalação das dependências necessárias.
+
+Para verificar se há dispositivos disponíveis para rodar a aplicação:
+```
+flutter devices
+```
+Para entrar na pasta da aplicação, no mesmo terminal:
+```
+cd pasta_da_aplicacao
+```
+Por fim, para executá-la:
+```
+flutter run
+```
+Uma lista com os dispositivos disponíveis aparecerá. Basta escolher o desejado e esperar o aplicativo iniciar.
