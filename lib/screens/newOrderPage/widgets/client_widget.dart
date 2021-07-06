@@ -2,15 +2,17 @@ import 'dart:ui';
 
 import 'package:appetit/utils/theme.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
-final key = new GlobalKey<_ClientTilesState>();
 
 class ClientsWidget extends StatefulWidget {
+  static RxInt quantity = RxInt(0);
   @override
   _ClientsWidgetState createState() => _ClientsWidgetState();
 }
 
-class _ClientsWidgetState extends State<ClientsWidget> {
+class _ClientsWidgetState extends State<ClientsWidget> with GetxServiceMixin {
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -20,22 +22,32 @@ class _ClientsWidgetState extends State<ClientsWidget> {
         children: <Widget>[
           ClientTitle(),
           Expanded(
-            child: Clients(),
+            child: Clients(function: countSelectedClients),
           ),
         ],
       ),
     );
+  }
+
+  void countSelectedClients(bool isClicked) {
+    if(isClicked) {
+      ClientsWidget.quantity.value++;
+    } else {
+      ClientsWidget.quantity.value--;
+    }
   }
 }
 
 class ClientTiles extends StatefulWidget {
   final String name;
   final String imageUrl;
+  final Function function;
 
   const ClientTiles(
       {Key? key,
         required this.name,
         required this.imageUrl,
+        required this.function,
         })
       : super(key: key);
 
@@ -45,15 +57,18 @@ class ClientTiles extends StatefulWidget {
 
 class _ClientTilesState extends State<ClientTiles> {
   bool _isClicked = false;
-  bool get isClicked => _isClicked;
 
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () => setState(() => {
-        this._isClicked = !this._isClicked,
-      }),
+      onTap: () {
+        setState(() =>
+        {
+          this._isClicked = !this._isClicked,
+        });
+        widget.function(_isClicked);
+      },
       child: Column(
         children: <Widget>[
           Container(
@@ -118,6 +133,8 @@ class ClientTitle extends StatelessWidget {
 }
 
 class Clients extends StatelessWidget {
+  final Function function;
+  Clients({Key? key, required this.function});
   @override
   Widget build(BuildContext context) {
     return ListView(
@@ -125,17 +142,19 @@ class Clients extends StatelessWidget {
         ClientTiles(
             name: "Rick Sanchez",
             imageUrl: "rick_sanchez.jpg",
+            function: function,
         ),
       ClientTiles(
             name: "Vivi Ornitier",
             imageUrl: 'vivi_ornitier.jpg',
+            function: function,
         ),
         ClientTiles(
             name: "Naruto Uzumaki",
             imageUrl: 'naruto_uzumaki.jpg',
+            function: function,
         ),
       ],
     );
   }
 }
-

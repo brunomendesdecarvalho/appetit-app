@@ -41,7 +41,7 @@ class _FoodDetailsPageState extends State<FoodDetailsPage> {
               color: getCorTema(),
             ),
             splashRadius: 20,
-            onPressed: () => Navigator.of(context).pop(),
+            onPressed: () => Navigator.of(context).pop(true),
           ),
         ),
         body:
@@ -249,6 +249,7 @@ class AddToCartMenu extends StatefulWidget {
 
 class _AddToCartMenuState extends State<AddToCartMenu> {
   int quantity = 1;
+  double price = 0.0;
   @override
   Widget build(BuildContext context) {
     return BottomAppBar(
@@ -261,7 +262,7 @@ class _AddToCartMenuState extends State<AddToCartMenu> {
               if (this.quantity > 1) {
                 setState(() {
                   this.quantity--;
-                });
+                  });
               }
             },
             icon: Icon(Icons.remove),
@@ -289,12 +290,7 @@ class _AddToCartMenuState extends State<AddToCartMenu> {
                 onPressed: () => {
                   Navigator.pop(
                       context,
-                      PageTransition(
-                          type: PageTransitionType.topToBottom,
-                          duration: Duration(milliseconds: 50),
-                          // reverseDuration: Duration(milliseconds: 500),
-                          child: NewOrderPage()
-                      )
+                      [true, this.quantity, this.quantity * this.widget.price]
                 )
               },
                 child: Row(

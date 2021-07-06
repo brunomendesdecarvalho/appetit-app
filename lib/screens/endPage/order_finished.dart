@@ -2,7 +2,6 @@ import 'package:appetit/screens/homePage/home_page.dart';
 import 'package:appetit/screens/newOrderPage/new_order_page_food.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:page_transition/page_transition.dart';
 
 class EndOfOrderPage extends StatelessWidget {
   @override
@@ -33,14 +32,7 @@ class EndOfOrderPage extends StatelessWidget {
                   borderRadius: BorderRadius.circular(24),
                 ),
                 onPressed: () => {
-                  Navigator.push(
-                      context,
-                      PageTransition(
-                          type: PageTransitionType.fade,
-                          duration: Duration(milliseconds: 500),
-                          child: NewOrderPage()
-                      )
-                  )
+                Navigator.of(context).popUntil(ModalRoute.withName(NewOrderPage.tag)),
                 },
                 padding: EdgeInsets.only(left : 14, right: 14),
                 color: Color(0xFFFF8822),
@@ -57,14 +49,7 @@ class EndOfOrderPage extends StatelessWidget {
                   side: BorderSide(color: Color(0xFFB8CC3B), width: 2),
                 ),
                 onPressed: () => {
-                  Navigator.push(
-                      context,
-                      PageTransition(
-                          type: PageTransitionType.fade,
-                          duration: Duration(milliseconds: 500),
-                          child: HomePage()
-                      )
-                  )
+                Navigator.of(context).popUntil(ModalRoute.withName(HomePage.tag)),
                 },
                 padding: EdgeInsets.symmetric(vertical : 14, horizontal: 24),
                 color: Colors.white,

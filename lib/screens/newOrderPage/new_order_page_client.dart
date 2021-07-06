@@ -5,6 +5,7 @@ import 'package:appetit/utils/title_text.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:page_transition/page_transition.dart';
+import 'package:get/get.dart';
 
 import 'components/back_button.dart';
 import 'components/search.dart';
@@ -13,8 +14,6 @@ import 'new_order_page_date.dart';
 class ClientsPage extends StatefulWidget {
   static String tag = 'clients-page';
   ClientsPage({Key? key}) : super(key: key);
-
-  get isClicked => null;
 
   @override
   _ClientsPageState createState() => _ClientsPageState();
@@ -42,18 +41,24 @@ class _ClientsPageState extends State<ClientsPage> {
         child: Icon(Icons.add),
         backgroundColor: getCorTema(),
       ),
-      bottomNavigationBar: AdvanceBar()
+      bottomNavigationBar: Obx(
+          () => Visibility(
+            visible: ClientsWidget.quantity.value != 0,
+            child: AdvanceBar()
+          )
+      )
     );
   }
 }
 
 class AdvanceBar extends StatefulWidget {
+  AdvanceBar({Key? key,}) : super(key: key);
   @override
   _AdvanceBarState createState() => _AdvanceBarState();
 }
 
 class _AdvanceBarState extends State<AdvanceBar> {
-  bool? _isClicked = key.currentState?.isClicked;
+
   @override
   Widget build(BuildContext context) {
     return BottomAppBar(
@@ -63,7 +68,7 @@ class _AdvanceBarState extends State<AdvanceBar> {
           Container(
             padding: EdgeInsets.only(left: 16),
             child: Text(
-              '3 clientes selecionados',
+              '${ClientsWidget.quantity.value} clientes selecionados',
               style: TextStyle(
                   fontSize: 16,
                   color: Colors.white
