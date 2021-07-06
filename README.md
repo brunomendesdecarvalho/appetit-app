@@ -57,12 +57,14 @@ As dependências que se encontram no arquivo pubspect.yaml, são as seguintes:
 
 ### Como Rodar o Projeto:
 
+#### Clonando o Projeto no Computador:
 Antes de mais nada, é preciso copiar esse repositório para o computador. Para isso, de posse do Git instalado e configurado no computador, abra um terminal de preferência, na pasta desejada, e digite a seguinte linha de comando:
 ```
 git clone https://github.com/brunomendesdecarvalho/appetit-app.git
 ```
 O repositório será todo copiado para a pasta onde o terminal está aberto.
 
+#### Antes de Rodar o Projeto:
 Um primeiro passo interessante a se fazer, antes de iniciar o projeto propriamente dito, é rodar o flutter doctor, para averiguar se todos os requisitos para iniciar a aplicação estão satisfeitos:
 ```
 flutter doctor
@@ -81,6 +83,8 @@ Caso seja necessário instalar as dependências, no terminal, digite:
 ```
 flutter pub get
 ```
+
+#### Rodando o Projeto:
 Por fim, para executá-la:
 ```
 flutter run
@@ -88,7 +92,7 @@ flutter run
 Uma lista com os dispositivos disponíveis aparecerá. Basta escolher o desejado e esperar o aplicativo iniciar.
 
 ### Agradecimentos:
-Sou muito grato à Maida.health, por me permitir a oportunidade de participar deste processo seletivo. Foi bastante desafiador, aprendi muita coisa nova e, independentemente do resultado e estou muito satisfeito, porque pude dar o meu melhor com tudo aquilo que eu sabia e com o que consegui aprender.
+Sou muito grato à Maida.health, por me permitir a oportunidade de participar deste processo seletivo. Foi bastante desafiador, aprendi muita coisa nova e, independentemente do resultado, estou muito satisfeito, porque pude dar o meu melhor com tudo aquilo que eu sabia e com o que consegui aprender.
 Espero que gostem do que fiz, e torço para que este teste seja só o começo das nossas relações. :)
 
 Atenciosamente,
