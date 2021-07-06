@@ -80,3 +80,9 @@ Por fim, para executá-la:
 flutter run
 ```
 Uma lista com os dispositivos disponíveis aparecerá. Basta escolher o desejado e esperar o aplicativo iniciar.
+
+### Agradecimentos:
+Sou muito grato à Maida.health, por me permitir a oportunidade de participar deste processo seletivo. Foi bastante desafiador, aprendi muita coisa nova e, independentemente do resultado, sou uma pessoa antes e outra agora que terminei esse teste, e estou muito satisfeito, porque pude dar o meu melhor com tudo aquilo que eu sabia e com o que consegui aprender.
+Espero que gostem do que fiz, e torço para que este teste seja só o começo das nossas relações :)
+
+Bruno Mendes de Carvalho Castelo Branco
