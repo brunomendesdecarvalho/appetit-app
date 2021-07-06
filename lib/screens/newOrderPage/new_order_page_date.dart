@@ -21,9 +21,9 @@ class DateOfPaymentPage extends StatefulWidget {
 }
 
 class _DateOfPaymentPageState extends State<DateOfPaymentPage> {
-  DateTime date = DateTime.now().subtract(Duration(days:1));
-  bool yesIsChecked = false;
-  bool noIsChecked = false;
+  DateTime date = DateTime.now().subtract(Duration(days:1)); // Menor data possível: o dia de ontem.
+  bool yesIsChecked = false; // Se o checkbox do card "sim" está selecionado.
+  bool noIsChecked = false; // Se o checkbox do card "sim" está selecionado.
 
   @override
   Widget build(BuildContext context) {
@@ -53,11 +53,11 @@ class _DateOfPaymentPageState extends State<DateOfPaymentPage> {
                   mainAxisSize: MainAxisSize.min,
                   children: <Widget>[
                     ListTile(
-                    // leading: Icon(Icons.circle_outlined, color: Color(0xFFFF8822)),
                     leading: Checkbox(
                       checkColor: Colors.white,
                       value: yesIsChecked,
-                      onChanged: (bool? value) {
+                      // Se um já estiver marcado, o outro será desmarcado.
+                        onChanged: (bool? value) {
                         if(!noIsChecked) {
                           setState(() {
                             yesIsChecked = value!;
@@ -94,7 +94,6 @@ class _DateOfPaymentPageState extends State<DateOfPaymentPage> {
                 mainAxisSize: MainAxisSize.min,
                 children: <Widget>[
                   ListTile(
-                    // leading: Icon(Icons.circle_outlined, color: Color(0xFFFF8822)),
                     leading: Checkbox(
                       checkColor: Colors.white,
                       value: noIsChecked,
@@ -149,6 +148,7 @@ class _DateOfPaymentPageState extends State<DateOfPaymentPage> {
                   leading: Icon(Icons.calendar_today, color: Colors.black54),
                   title: Transform.translate(
                     offset: Offset(-20, 0),
+                    // A data de ontem não pode ser selecionada.
                     child: Text((date.isBefore(DateTime.now())) ? 'Selecione uma data' : DateFormat('dd/MM/yyyy').format(date),
                       style: TextStyle(
                         fontSize: 16.0,
@@ -178,6 +178,7 @@ class _DateOfPaymentPageState extends State<DateOfPaymentPage> {
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(24),
                 ),
+                // O botão só será habilitado se ambos os campos "já pagou" e "data" estiverem preenchidos.
                 onPressed: (date.isBefore(DateTime.now()) && (!yesIsChecked || !noIsChecked)) ? null : () => {
                   Navigator.push(
                       context,

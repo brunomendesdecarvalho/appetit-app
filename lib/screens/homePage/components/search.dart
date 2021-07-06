@@ -5,10 +5,7 @@ Padding search() {
   return Padding(
     padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
     child: TextField(
-      onChanged: (value) {
-        // filterSearchResults(value);
-      },
-      // controller: editingController,
+      onChanged: (value) {},
       decoration: InputDecoration(
       hintText: "Digite a sua busca aqui",
       prefixIcon: Icon(Icons.search, color: getCorTema()),

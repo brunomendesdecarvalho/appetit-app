@@ -46,10 +46,7 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
 
-    final logo = Hero(
-      tag: 'appetit-logo',
-      child: Image.asset('assets/logo.png', scale: .8,),
-    );
+    final logo = Image.asset('assets/logo.png', scale: .8,);
     final title = loginText(24.0, getCorTema(), 'Seja bem-vindo!');
     final subtitle = loginText(16.0, Colors.black54, 'Nós sabemos a importância de estar sempre de barriga cheia e o quanto isso pode ajudar no seu dia.');
     final email = loginField('E-mail');

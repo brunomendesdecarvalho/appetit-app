@@ -3,10 +3,8 @@ import 'package:appetit/utils/theme.dart';
 import 'package:appetit/utils/title_text.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:page_transition/page_transition.dart';
 
-import '../new_order_page_food.dart';
-
+// Widget da página de detalhes da comida.
 class FoodDetailsPage extends StatefulWidget {
   final String imageUrl;
   final String name;
@@ -23,8 +21,9 @@ class FoodDetailsPage extends StatefulWidget {
 }
 
 class _FoodDetailsPageState extends State<FoodDetailsPage> {
-    bool firstIsChecked = false;
-    bool secondIsChecked = false;
+  // Se a primeira ou a segunda opção está selecionada.
+  bool firstIsChecked = false;
+  bool secondIsChecked = false;
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
@@ -41,6 +40,8 @@ class _FoodDetailsPageState extends State<FoodDetailsPage> {
               color: getCorTema(),
             ),
             splashRadius: 20,
+            // Retorna que a comida foi selecionada para a página da listagem de
+            // comidas, para que o card fique laranja.
             onPressed: () => Navigator.of(context).pop(true),
           ),
         ),
@@ -82,6 +83,7 @@ class _FoodDetailsPageState extends State<FoodDetailsPage> {
                                     )
                                   ],
                                 ),
+                                // Se for algum cuscuz, vai ter esse subtítulo.
                                 subtitle: (widget.name.contains('Cuscuz')) ? Text('Milho ou arroz',
                                     style: TextStyle(
                                       color: Colors.black54,
@@ -131,6 +133,7 @@ class _FoodDetailsPageState extends State<FoodDetailsPage> {
                     mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
                       ListTile(
+                        // Se uma opção for selecionada, a outra será desselecionada
                         leading: Checkbox(
                             checkColor: Colors.white,
                             value: secondIsChecked,
@@ -152,6 +155,8 @@ class _FoodDetailsPageState extends State<FoodDetailsPage> {
                         title: Transform.translate(
                           offset: Offset(-20, 0),
                           child: Text(
+                            // Se for cuscuz, 'cuscuz de milho', se não, 'massa
+                            // fina', por todas as demais serem pães ou derivados.
                             widget.name.contains('Cuscuz') ? 'Cuscuz de milho' : 'Massa fina',
                             style: TextStyle(
                                 fontSize: 14.0,
@@ -229,6 +234,7 @@ class _FoodDetailsPageState extends State<FoodDetailsPage> {
             ),
           ),
         ),
+        // Barra inferior aparecerá apenas se uma das opções forem seleciodadas.
         bottomNavigationBar: (firstIsChecked || secondIsChecked) ? AddToCartMenu(price: widget.price) : null,
       ),
     );
@@ -287,6 +293,7 @@ class _AddToCartMenuState extends State<AddToCartMenu> {
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(4),
                 ),
+                // Retorna a lista ['Foi escolhida a comida', 'quantidade', 'valor total desse pedido']
                 onPressed: () => {
                   Navigator.pop(
                       context,

@@ -1,6 +1,8 @@
 import 'package:appetit/utils/theme.dart';
 import 'package:flutter/material.dart';
 
+
+// Texto presente nos títulos das telas
 Column TitleText(String text) {
   return Column(
     children: [
@@ -26,6 +28,7 @@ Column TitleText(String text) {
   );
 }
 
+// Subtítulo das páginas.
 Container DescriptionText(String text) {
   return Container(
     alignment: Alignment.topLeft,

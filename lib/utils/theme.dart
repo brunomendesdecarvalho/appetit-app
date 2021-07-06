@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+// Definição do tema laranja da aplicação.
 Map<int, Color> color1 =
 {
   50:Color.fromRGBO(229, 122, 31, .1),
@@ -16,6 +17,7 @@ Map<int, Color> color1 =
 
 MaterialColor theme = MaterialColor(0xFFFF8822, color1);
 
+// Função para retornar a cor #FF8822.
 MaterialColor getCorTema() {
   return theme;
 }

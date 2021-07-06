@@ -4,9 +4,9 @@ import 'package:appetit/utils/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-
+// Widget que construirá o corpo da página.
 class ClientsWidget extends StatefulWidget {
-  static RxInt quantity = RxInt(0);
+  static RxInt quantity = RxInt(0); // Gerenciador de estado para a quantidade de clientes selecionados.
   @override
   _ClientsWidgetState createState() => _ClientsWidgetState();
 }
@@ -29,6 +29,7 @@ class _ClientsWidgetState extends State<ClientsWidget> with GetxServiceMixin {
     );
   }
 
+  // Função para incrementar ou decrementar o gerenciador de estado na medida em que o cliente for selecionado ou não
   void countSelectedClients(bool isClicked) {
     if(isClicked) {
       ClientsWidget.quantity.value++;
@@ -38,6 +39,7 @@ class _ClientsWidgetState extends State<ClientsWidget> with GetxServiceMixin {
   }
 }
 
+// Widget do card de clientes.
 class ClientTiles extends StatefulWidget {
   final String name;
   final String imageUrl;
@@ -56,7 +58,7 @@ class ClientTiles extends StatefulWidget {
 }
 
 class _ClientTilesState extends State<ClientTiles> {
-  bool _isClicked = false;
+  bool _isClicked = false; // se o card foi selecionado
 
 
   @override
@@ -110,6 +112,7 @@ class _ClientTilesState extends State<ClientTiles> {
   }
 }
 
+// Widget com o título da lista de clientes.
 class ClientTitle extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -132,6 +135,7 @@ class ClientTitle extends StatelessWidget {
   }
 }
 
+// Widget para criar e organizar os cards em listas.
 class Clients extends StatelessWidget {
   final Function function;
   Clients({Key? key, required this.function});

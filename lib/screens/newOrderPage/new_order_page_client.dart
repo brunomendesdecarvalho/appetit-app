@@ -41,6 +41,7 @@ class _ClientsPageState extends State<ClientsPage> {
         child: Icon(Icons.add),
         backgroundColor: getCorTema(),
       ),
+      // Barra inferior só aparecerá se houver pelo menos um dos clientes selecionados.
       bottomNavigationBar: Obx(
           () => Visibility(
             visible: ClientsWidget.quantity.value != 0,
@@ -90,6 +91,7 @@ class _AdvanceBarState extends State<AdvanceBar> {
               color: Colors.white,
               size: 12,
             ),
+            // Limpeza do estado para resetar as seleções ao final da operação.
             onPressed: () {
               ClientsWidget.quantity.value = 0;
               setState(() {});

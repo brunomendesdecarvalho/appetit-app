@@ -9,6 +9,7 @@ import 'screens/homePage/home_page.dart';
 void main() => runApp(Appetit());
 
 class Appetit extends StatelessWidget {
+  // Rotas da aplicação.
   final routes = <String, WidgetBuilder>{
     LoginPage.tag: (context) => LoginPage(),
     HomePage.tag: (context) => HomePage(),
@@ -17,6 +18,7 @@ class Appetit extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // Barra de status transparente
     SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
       statusBarColor: Colors.transparent,
     ));
@@ -27,6 +29,7 @@ class Appetit extends StatelessWidget {
       ],
       supportedLocales: [const Locale('pt', 'BR')],
       title: 'Appetit',
+      // Definição da cor do tema da aplicação.
       theme: ThemeData(
         primarySwatch: getCorTema(),
       ),

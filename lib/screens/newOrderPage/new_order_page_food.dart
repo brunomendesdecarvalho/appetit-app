@@ -15,7 +15,7 @@ import 'new_order_page_client.dart';
 
 class NewOrderPage extends StatefulWidget {
   static String tag = 'new-order-page';
-  static RxDouble totalValue = new RxDouble(0);
+  static RxDouble totalValue = new RxDouble(0); // Gerenciador de estado do valor total do pedido
   NewOrderPage({Key? key}) : super(key: key);
 
   @override
@@ -23,7 +23,6 @@ class NewOrderPage extends StatefulWidget {
 }
 
 class _NewOrderPageState extends State<NewOrderPage> {
-  static double totalPrice = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -91,7 +90,7 @@ class _FoodTilesState extends State<FoodTiles> {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        _awaitSelectedAndQuantity(context);
+        _awaitSelectedAndQuantityAndPrice(context);
       },
       child: Column(
         children: <Widget>[
@@ -146,7 +145,9 @@ class _FoodTilesState extends State<FoodTiles> {
       ),
     );
   }
-  void _awaitSelectedAndQuantity(BuildContext context) async {
+
+  // Vai para a página de detalhes e retorna se o card foi selecionado a quantidade e o valor total.
+  void _awaitSelectedAndQuantityAndPrice(BuildContext context) async {
 
     final isSelectedAndQuantityAndPrice = await Navigator.push(
         context,
@@ -312,7 +313,7 @@ class _AdvanceBarState extends State<AdvanceBar> {
               color: Colors.white,
               size: 12,
             ), onPressed: () {
-              NewOrderPage.totalValue.value = 0;
+              NewOrderPage.totalValue.value = 0; // Resetar a página
               setState(() {});
             Navigator.push(
                 context,
