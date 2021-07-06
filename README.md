@@ -1,4 +1,6 @@
 # Appetit
+<a href="https://github.com/brunomendesdecarvalho/appetit-app/network"><img alt="GitHub forks" src="https://img.shields.io/github/forks/brunomendesdecarvalho/appetit-app?style=for-the-badge"></a>
+<a href="https://github.com/brunomendesdecarvalho/appetit-app/stargazers"><img alt="GitHub stars" src="https://img.shields.io/github/stars/brunomendesdecarvalho/appetit-app?style=for-the-badge"></a>
 
 ## Sumário
 
