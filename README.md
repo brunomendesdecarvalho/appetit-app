@@ -1,6 +1,8 @@
 # Appetit
-<a href="https://github.com/brunomendesdecarvalho/appetit-app/network"><img alt="GitHub forks" src="https://img.shields.io/github/forks/brunomendesdecarvalho/appetit-app?style=for-the-badge"></a>
-<a href="https://github.com/brunomendesdecarvalho/appetit-app/stargazers"><img alt="GitHub stars" src="https://img.shields.io/github/stars/brunomendesdecarvalho/appetit-app?style=for-the-badge"></a>
+<a href="https://github.com/brunomendesdecarvalho/appetit-app/issues"><img alt="GitHub issues" src="https://img.shields.io/github/issues/brunomendesdecarvalho/appetit-app"></a>
+<a href="https://github.com/brunomendesdecarvalho/appetit-app/network"><img alt="GitHub forks" src="https://img.shields.io/github/forks/brunomendesdecarvalho/appetit-app"></a>
+<a href="https://github.com/brunomendesdecarvalho/appetit-app/stargazers"><img alt="GitHub stars" src="https://img.shields.io/github/stars/brunomendesdecarvalho/appetit-app"></a>
+[![Linkedin Badge](https://img.shields.io/badge/-brunomendesccb-blue?style=flat&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/brunomendesccb/)](https://www.linkedin.com/in/brunomendesccb/)
 
 ## Sumário
 
