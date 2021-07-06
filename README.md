@@ -5,6 +5,8 @@ O seguinte projeto foi feito como solução para o teste de ingresso ao time de 
 
 O aplicativo visa realizar vendas de produtos de uma cafeteria fictícia chamada Appetit. Conforme projeto do Figma, constam as telas de Login - com validações, listagem de pedidos - pré-renderizada, não sendo alterada ao final do fluxo; tela de novo pedido - com os produtos e seus respectivos valores; tela de detalhes do pedido - para selecionar uma opção e inserir uma quantidade, uma tela de seleção de clientes, uma tela para selecionar se o cliente já pagou ou não e escolher a data do pagamento e, por fim, a tela de sucesso no pedido.
 
+Os testes foram feitos nas builds para Windows, Google Chrome (web) e Android, via emulador do Android Studio.
+
 ### Descrição do Fluxo:
 O usuário inicia a página na tela de Login, onde deve inserir um e-mail e uma senha válidos, para que o botão de login seja habilitado. As validações são:
 - Para o e-mail: se é válido (formato email@dominio.com), se é igual ao e-mail padrão utilizado para os testes no aplicativo: teste@teste.com;
