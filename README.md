@@ -1,16 +1,37 @@
 # Appetit
 
-A new Flutter project.
+### Descrição do Projeto:
+O seguinte projeto foi feito como solução para o teste de ingresso ao time de desenvolvimento Flutter da Maida.health.
 
-## Getting Started
+O aplicativo visa realizar vendas de produtos de uma cafeteria fictícia chamada Appetit. Conforme projeto do Figma, constam as telas de Login - com validações, listagem de pedidos - pré-renderizada, não sendo alterada ao final do fluxo; tela de novo pedido - com os produtos e seus respectivos valores; tela de detalhes do pedido - para selecionar uma opção e inserir uma quantidade, uma tela de seleção de clientes, uma tela para selecionar se o cliente já pagou ou não e escolher a data do pagamento e, por fim, a tela de sucesso no pedido.
 
-This project is a starting point for a Flutter application.
+### Descrição do Fluxo:
+O usuário inicia a página na tela de Login, onde deve inserir um e-mail e uma senha válidos, para que o botão de login seja habilitado. As validações são:
+- Para o e-mail: se é válido (email@email.com), se é igual ao e-mail padrão utilizado para os testes no aplicativo (teste@teste.com);
+- Para a senha: se possui, no mínimo, 6 caracteres; se é igual à senha padrão utilizada para os testes no aplicativo (123456);
 
-A few resources to get you started if this is your first Flutter project:
+Para a realização do formulário, foi utilizada o pacote [Reactive Forms](https://pub.dev/packages/reactive_forms).
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+Ao realizar o login, o usuário é levado para a página inicial, onde se encontra um título com uma mensagem de boas-vindas padrão, junto com uma barra de busca e um histórico de vendas agrupadas por dia. A listagem é estática, logo, ao final da operação de venda, não será incrementada. Ela foi desenhada para fins de testes.
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Ao apertar no card "fazer novo pedido", o usuário é redirecionado para uma página de informações do pedido. Nela, constam uma barra de progresso criada através do pacote [Flutter Animation Progress Bar](https://pub.dev/packages/flutter_animation_progress_bar), uma guia de busca e a lista de produtos, agrupadas por tipo (no caso, cuscuz ou pães).
+
+Ao selecionar um card, o usuário é levado para a página de detalhes do pedido, onde pode selecionar entre duas opções de massas (para cuscuz, arroz ou milho e, para pães, massa fina ou grossa). Ainda, pode acrescentar observações ao pedido. Ao selecionar uma das opções, a barra inferior aparece, com a quantidade desejada e o valor total. O usuário pode aumentar ou diminuir a quantidade desejada, impactando no valor total do pedido. Ao clicar em "adicionar", ele é redirecionado para a página de lista de produtos, onde o card do produto selecionado estará laranja e haverá uma barra inferior com o valor total da compra e um botão para avançar. Caso deseje, o usuário poderá adicionar outro pedido.
+
+A comunicação entre os widgets desta página foi feita por meio de gerência de estado, tanto nativamente quanto por meio do pacote [GetX](https://pub.dev/packages/get).
+
+Ao clicar em "Avançar", o usuário irá para a página de seleção dos clientes. Ao selecionar um card, este se tornará laranja e a barra inferior aparecerá, com a quantidade de clientes selecionados e o botão de avanço. Podem ser selecionados mais de um e, conforme assim os forem, a quantidade de clientes na barra inferior será atualizada. A gerência de estado foi feita da mesma forma que na página de produtos.
+
+Após a página de clientes, vem a página de finalização do pedido, onde o usuário seleciona se o cliente já pagou ou não e a data do pagamento. Apenas um card pode ser selecionado por vez, e apenas uma data entre o dia atual e 1 ano no futuro pode ser selecionada. O botão de finalizar o pedido só é habilitado caso os dois campos sejam preenchidos.
+
+Por fim, vem a página de feedback do pedido, mostrando que ele fora realizado com sucesso. Ela possui dois botões: o primeiro, para fazer outro pedido e, o segundo, para voltar para a página inicial.
+
+### Descrição da Organização do Projeto:
+Até a data da escrita desse Readme.md, o projeto basicamente consiste em algumas pastas dentro da lib, a saber:
+- loginPage, onde se encontram os widgets e uma outra pasta "components" com alguns arquivos úteis;
+- homePage, onde se encontram os widgets da página inicial e uma pasta "components" com alguns arquivos importantes, dentre eles o script que gera a lista estática de pedidos;
+- newOrderPage, onde estão as páginas associadas ao pedido: lista de produtos, lista de clientes e seleção de data. Além disso, há uma pasta components com alguns componentes úteis e uma pasta widgets, com alguns widgets importantes;
+- endPage, onde se encontra a página de feedback do pedido.
+
+### Pacotes utilizados:
+
