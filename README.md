@@ -1,13 +1,27 @@
 # Appetit
 
-### Descrição do Projeto:
+## Sumário
+
+- [Appetit](#appetit)
+    - [Descrição do Projeto](#descrição-do-projeto)
+    - [Descrição do Fluxo](#descrição-do-fluxo)
+    - [Descrição da Organização do Projeto](#descrição-da-organização-do-projeto)
+    - [Pacotes utilizados](#pacotes-utilizados)
+    - [Bugs Conhecidos](#bugs-conhecidos)
+    - [Como Rodar o Projeto](#como-rodar-o-projeto)
+      - [Clonando o Projeto no Computador](#clonando-o-projeto-no-computador)
+      - [Antes de Rodar o Projeto](#antes-de-rodar-o-projeto)
+      - [Rodando o Projeto](#rodando-o-projeto)
+    - [Agradecimentos](#agradecimentos)
+
+### Descrição do Projeto
 O seguinte projeto foi feito como solução para o teste de ingresso ao time de desenvolvimento Flutter da Maida.health.
 
 O aplicativo visa realizar vendas de produtos de uma cafeteria fictícia chamada Appetit. Conforme projeto do Figma, constam as telas de Login - com validações, listagem de pedidos - pré-renderizada, não sendo alterada ao final do fluxo; tela de novo pedido - com os produtos e seus respectivos valores; tela de detalhes do pedido - para selecionar uma opção e inserir uma quantidade, uma tela de seleção de clientes, uma tela para selecionar se o cliente já pagou ou não e escolher a data do pagamento e, por fim, a tela de sucesso no pedido.
 
 Os testes foram feitos nas builds para Windows, Google Chrome (web) e Android, via emulador do Android Studio.
 
-### Descrição do Fluxo:
+### Descrição do Fluxo
 O usuário inicia a página na tela de Login, onde deve inserir um e-mail e uma senha válidos, para que o botão de login seja habilitado. As validações são:
 - Para o e-mail: se é válido (formato email@dominio.com), se é igual ao e-mail padrão utilizado para os testes no aplicativo: teste@teste.com;
 - Para a senha: se possui, no mínimo, 6 caracteres; se é igual à senha padrão utilizada para os testes no aplicativo: 123456;
@@ -28,7 +42,7 @@ Após a página de clientes, vem a página de finalização do pedido, onde o us
 
 Por fim, vem a página de feedback do pedido, mostrando que ele fora realizado com sucesso. Ela possui dois botões: o primeiro, para fazer outro pedido e, o segundo, para voltar para a página inicial.
 
-### Descrição da Organização do Projeto:
+### Descrição da Organização do Projeto
 Até a data da escrita desse Readme.md, o projeto basicamente consiste em algumas pastas dentro da lib, a saber:
 - loginPage, onde se encontram os widgets e uma outra pasta "components" com alguns arquivos úteis;
 - homePage, onde se encontram os widgets da página inicial e uma pasta "components" com alguns arquivos importantes, dentre eles o script que gera a lista estática de pedidos;
@@ -37,7 +51,7 @@ Até a data da escrita desse Readme.md, o projeto basicamente consiste em alguma
 
 Não foi utilizado um padrão específico de projeto, tal como MVC, MVVM ou BloC. 
 
-### Pacotes utilizados:
+### Pacotes utilizados
 
 As dependências que se encontram no arquivo pubspect.yaml, são as seguintes:
 - group_list_view: ^1.1.1
@@ -52,19 +66,19 @@ As dependências que se encontram no arquivo pubspect.yaml, são as seguintes:
     sdk: flutter
 - flutter_rounded_date_picker: 2.0.2
 
-### Bugs Conhecidos:
+### Bugs Conhecidos
 - Ao selecionar a primeira opção (realizar novo pedido) na página final, os cards selecionados permanecem laranjas, embora o preço seja resetado normalmente.
 
-### Como Rodar o Projeto:
+### Como Rodar o Projeto
 
-#### Clonando o Projeto no Computador:
+#### Clonando o Projeto no Computador
 Antes de mais nada, é preciso copiar esse repositório para o computador. Para isso, de posse do Git instalado e configurado no computador, abra um terminal de preferência, na pasta desejada, e digite a seguinte linha de comando:
 ```
 git clone https://github.com/brunomendesdecarvalho/appetit-app.git
 ```
 O repositório será todo copiado para a pasta onde o terminal está aberto.
 
-#### Antes de Rodar o Projeto:
+#### Antes de Rodar o Projeto
 Um primeiro passo interessante a se fazer, antes de iniciar o projeto propriamente dito, é rodar o flutter doctor, para averiguar se todos os requisitos para iniciar a aplicação estão satisfeitos:
 ```
 flutter doctor
@@ -84,14 +98,14 @@ Caso seja necessário instalar as dependências, no terminal, digite:
 flutter pub get
 ```
 
-#### Rodando o Projeto:
+#### Rodando o Projeto
 Por fim, para executá-la:
 ```
 flutter run
 ```
 Uma lista com os dispositivos disponíveis aparecerá. Basta escolher o desejado e esperar o aplicativo iniciar.
 
-### Agradecimentos:
+### Agradecimentos
 Sou muito grato à Maida.health, por me permitir a oportunidade de participar deste processo seletivo. Foi bastante desafiador, aprendi muita coisa nova e, independentemente do resultado, estou muito satisfeito, porque pude dar o meu melhor com tudo aquilo que eu sabia e com o que consegui aprender.
 Espero que gostem do que fiz, e torço para que este teste seja só o começo das nossas relações. :)
 
