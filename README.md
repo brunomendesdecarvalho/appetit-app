@@ -7,8 +7,8 @@ O aplicativo visa realizar vendas de produtos de uma cafeteria fictícia chamada
 
 ### Descrição do Fluxo:
 O usuário inicia a página na tela de Login, onde deve inserir um e-mail e uma senha válidos, para que o botão de login seja habilitado. As validações são:
-- Para o e-mail: se é válido (formato email@dominio.com), se é igual ao e-mail padrão utilizado para os testes no aplicativo (teste@teste.com);
-- Para a senha: se possui, no mínimo, 6 caracteres; se é igual à senha padrão utilizada para os testes no aplicativo (123456);
+- Para o e-mail: se é válido (formato email@dominio.com), se é igual ao e-mail padrão utilizado para os testes no aplicativo: teste@teste.com;
+- Para a senha: se possui, no mínimo, 6 caracteres; se é igual à senha padrão utilizada para os testes no aplicativo: 123456;
 
 Para a realização do formulário, foi utilizada o pacote [Reactive Forms](https://pub.dev/packages/reactive_forms).
 
