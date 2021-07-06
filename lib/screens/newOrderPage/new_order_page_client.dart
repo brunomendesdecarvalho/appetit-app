@@ -91,6 +91,8 @@ class _AdvanceBarState extends State<AdvanceBar> {
               size: 12,
             ),
             onPressed: () {
+              ClientsWidget.quantity.value = 0;
+              setState(() {});
               Navigator.push(
                  context,
                  PageTransition(

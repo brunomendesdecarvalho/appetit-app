@@ -49,7 +49,8 @@ class EndOfOrderPage extends StatelessWidget {
                   side: BorderSide(color: Color(0xFFB8CC3B), width: 2),
                 ),
                 onPressed: () => {
-                Navigator.of(context).popUntil(ModalRoute.withName(HomePage.tag)),
+                  Navigator.of(context).popUntil(ModalRoute.withName(HomePage.tag)),
+                  Navigator.pushNamed(context, NewOrderPage.tag)
                 },
                 padding: EdgeInsets.symmetric(vertical : 14, horizontal: 24),
                 color: Colors.white,

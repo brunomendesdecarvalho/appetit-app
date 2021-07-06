@@ -5,6 +5,7 @@ import 'package:appetit/utils/theme.dart';
 import 'package:appetit/utils/title_text.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:page_transition/page_transition.dart';
 
 import 'components/back_button.dart';
@@ -14,6 +15,7 @@ import 'new_order_page_client.dart';
 
 class NewOrderPage extends StatefulWidget {
   static String tag = 'new-order-page';
+  static RxDouble totalValue = new RxDouble(0);
   NewOrderPage({Key? key}) : super(key: key);
 
   @override
@@ -22,7 +24,6 @@ class NewOrderPage extends StatefulWidget {
 
 class _NewOrderPageState extends State<NewOrderPage> {
   static double totalPrice = 0;
-  static bool isAnySelected = false;
 
   @override
   Widget build(BuildContext context) {
@@ -52,7 +53,12 @@ class _NewOrderPageState extends State<NewOrderPage> {
           ],
         ),
       ),
-      bottomNavigationBar: AdvanceBar(totalPrice: _NewOrderPageState.totalPrice)
+      bottomNavigationBar: Obx(
+          () => Visibility(
+            visible: NewOrderPage.totalValue.value != 0,
+            child: AdvanceBar(),
+          )
+      )
     );
   }
 }
@@ -153,9 +159,9 @@ class _FoodTilesState extends State<FoodTiles> {
     );
     setState(() {
       widget.isSelectedAndQuantityAndPrice = isSelectedAndQuantityAndPrice;
-      // widget.setNewOrderState();
-      // _NewOrderPageState.isAnySelected = true;
+
     });
+      NewOrderPage.totalValue.value += widget.isSelectedAndQuantityAndPrice[2];
   }
 }
 
@@ -265,12 +271,8 @@ class _FoodItemsPaesState extends State<FoodItemsPaes> {
 
 
 class AdvanceBar extends StatefulWidget {
-  double totalPrice = _NewOrderPageState.totalPrice;
   AdvanceBar(
-      {Key? key,
-        required double totalPrice,
-
-      })
+      {Key? key,})
       : super(key: key);
 
   @override
@@ -278,10 +280,6 @@ class AdvanceBar extends StatefulWidget {
 }
 
 class _AdvanceBarState extends State<AdvanceBar> {
-
-  void callSetState() {
-    setState((){}); // it can be called without parameters. It will redraw based on changes done in _SecondWidgetState
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -292,7 +290,7 @@ class _AdvanceBarState extends State<AdvanceBar> {
           Container(
             padding: EdgeInsets.only(left: 16),
             child: Text(
-              'Total: R\$ ${realFormat.format(this.widget.totalPrice)}',
+              'Total: R\$ ${realFormat.format(NewOrderPage.totalValue.value)}',
               style: TextStyle(
                 fontSize: 16,
                 color: Colors.white
@@ -314,6 +312,8 @@ class _AdvanceBarState extends State<AdvanceBar> {
               color: Colors.white,
               size: 12,
             ), onPressed: () {
+              NewOrderPage.totalValue.value = 0;
+              setState(() {});
             Navigator.push(
                 context,
                 PageTransition(
