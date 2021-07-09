@@ -54,7 +54,7 @@ Até a data da escrita desse Readme.md, o projeto basicamente consiste em alguma
 - newOrderPages, onde estão as pastas associadas ao pedido, a saber: foodPage, onde estão as páginas de listagem de comida e detalhes da comida; clientPage, onde está a página de listagem de clientes; finishOrderPage, onde está a página de selecionar se o cliente já pagou ou não o pedido, bem como a data, e commons, onde estão métodos utilizados em todas as pastas citadas acima;
 - endPage, onde se encontra a página de feedback do pedido.
 
-Não foi utilizada uma arquitetura específica de projeto, tal como MVC, embora apresente algumas características desta. Há, também, uma grande divisão das funcionalidades em módulos mais simples, de modo a facilitar a leitura e manutenção do código.
+Não foi utilizada uma arquitetura específica de projeto, tal como MVC, embora ele apresente algumas características desta. Há, também, a divisão das funcionalidades em módulos menores, de modo a facilitar a leitura, manutenção e reuso do código.
 
 ### Pacotes utilizados
 
