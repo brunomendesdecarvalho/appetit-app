@@ -3,7 +3,7 @@ import 'package:appetit/screens/newOrderPages/foodPage/food-page-widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
-class EndOfOrderPage extends StatelessWidget {
+class EndPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

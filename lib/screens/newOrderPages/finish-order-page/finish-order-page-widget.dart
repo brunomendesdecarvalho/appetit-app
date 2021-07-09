@@ -186,7 +186,7 @@ class _FinishOrderPageState extends State<FinishOrderPage> {
                           type: PageTransitionType.rightToLeft,
                           duration: Duration(milliseconds: 500),
                           reverseDuration: Duration(milliseconds: 500),
-                          child: EndOfOrderPage()
+                          child: EndPage()
                       )
                   )
                 },
