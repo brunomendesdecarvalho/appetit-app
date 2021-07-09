@@ -22,7 +22,7 @@ class _AdvanceBarState extends State<AdvanceBar> {
           Container(
             padding: EdgeInsets.only(left: 16),
             child: Text(
-              '${ClientsWidget.quantity.value} clientes selecionados',
+              (ClientsWidget.quantity.value > 1) ? '${ClientsWidget.quantity.value} clientes selecionados' : '${ClientsWidget.quantity.value} cliente selecionado',
               style: TextStyle(
                   fontSize: 16,
                   color: Colors.white
