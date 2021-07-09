@@ -1,7 +1,7 @@
 import 'dart:ui';
 
-import 'package:appetit/screens/endPage/order_finished.dart';
-import 'package:appetit/screens/newOrderPage/components/progress_bar_and_text.dart';
+import 'package:appetit/screens/endPage/end-page-widget.dart';
+import 'package:appetit/screens/newOrderPages/common-components/progress-bar-and-text.dart';
 import 'package:appetit/utils/theme.dart';
 import 'package:appetit/utils/title_text.dart';
 import 'package:flutter/cupertino.dart';
@@ -10,17 +10,17 @@ import 'package:flutter_material_pickers/helpers/show_date_picker.dart';
 import 'package:page_transition/page_transition.dart';
 import 'package:intl/intl.dart';
 
-import 'components/back_button.dart';
+import '../common-components/back-button.dart';
 
-class DateOfPaymentPage extends StatefulWidget {
-  static String tag = 'date-of-payment-page';
-  DateOfPaymentPage({Key? key}) : super(key: key);
+class FinishOrderPage extends StatefulWidget {
+  static String tag = 'finish-order-page';
+  FinishOrderPage({Key? key}) : super(key: key);
 
   @override
-  _DateOfPaymentPageState createState() => _DateOfPaymentPageState();
+  _FinishOrderPageState createState() => _FinishOrderPageState();
 }
 
-class _DateOfPaymentPageState extends State<DateOfPaymentPage> {
+class _FinishOrderPageState extends State<FinishOrderPage> {
   DateTime date = DateTime.now().subtract(Duration(days:1)); // Menor data possível: o dia de ontem.
   bool yesIsChecked = false; // Se o checkbox do card "sim" está selecionado.
   bool noIsChecked = false; // Se o checkbox do card "sim" está selecionado.

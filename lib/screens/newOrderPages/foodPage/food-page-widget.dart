@@ -1,5 +1,7 @@
-import 'package:appetit/screens/newOrderPage/widgets/food_detail_widget.dart';
-import 'package:appetit/screens/newOrderPage/components/progress_bar_and_text.dart';
+import 'package:appetit/screens/newOrderPages/clientPage/widgets/advance-bar-widget.dart';
+import 'package:appetit/screens/newOrderPages/foodPage/widgets/food-list-builder-widget.dart';
+import 'package:appetit/screens/newOrderPages/foodPage/widgets/food-detail-widget.dart';
+import 'package:appetit/screens/newOrderPages/common-components/progress-bar-and-text.dart';
 import 'package:appetit/utils/price_format_real.dart';
 import 'package:appetit/utils/theme.dart';
 import 'package:appetit/utils/title_text.dart';
@@ -8,21 +10,20 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:page_transition/page_transition.dart';
 
-import 'components/back_button.dart';
-import 'components/search.dart';
-import 'new_order_page_client.dart';
+import '../common-components/back-button.dart';
+import '../common-components/search.dart';
 
 
-class NewOrderPage extends StatefulWidget {
+class FoodPage extends StatefulWidget {
   static String tag = 'new-order-page';
   static RxDouble totalValue = new RxDouble(0); // Gerenciador de estado do valor total do pedido
-  NewOrderPage({Key? key}) : super(key: key);
+  FoodPage({Key? key}) : super(key: key);
 
   @override
-  _NewOrderPageState createState() => _NewOrderPageState();
+  _FoodPageState createState() => _FoodPageState();
 }
 
-class _NewOrderPageState extends State<NewOrderPage> {
+class _FoodPageState extends State<FoodPage> {
 
   @override
   Widget build(BuildContext context) {
@@ -54,7 +55,7 @@ class _NewOrderPageState extends State<NewOrderPage> {
       ),
       bottomNavigationBar: Obx(
           () => Visibility(
-            visible: NewOrderPage.totalValue.value != 0,
+            visible: FoodPage.totalValue.value != 0,
             child: AdvanceBar(),
           )
       )
@@ -162,173 +163,6 @@ class _FoodTilesState extends State<FoodTiles> {
       widget.isSelectedAndQuantityAndPrice = isSelectedAndQuantityAndPrice;
 
     });
-      NewOrderPage.totalValue.value += widget.isSelectedAndQuantityAndPrice[2];
-  }
-}
-
-
-
-class FoodTitle extends StatelessWidget {
-  String title;
-
-  FoodTitle({
-    Key? key,
-    required this.title,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      padding: EdgeInsets.only(left: 16, right: 290, top: 23, bottom: 16),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: <Widget>[
-          Text(
-            "${this.title}",
-            style: TextStyle(
-                fontSize: 16,
-                color: Colors.black,
-                fontWeight: FontWeight.bold
-            ),
-          )
-        ],
-      ),
-    );
-  }
-}
-
-class FoodItemsCuscuz extends StatefulWidget {
-  @override
-  _FoodItemsCuscuzState createState() => _FoodItemsCuscuzState();
-}
-
-class _FoodItemsCuscuzState extends State<FoodItemsCuscuz> {
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      children: <Widget>[
-        FoodTiles(
-          name: "Cuscuz simples",
-          imageUrl: "cuscuz_simples.jpg",
-          description: "Milho ou arroz",
-          price: 2.25,
-        ),
-        FoodTiles(
-          name: "Cuscuz completo",
-          imageUrl: 'cuscuz_completo.jpg',
-          description: "Milho ou arroz",
-          price: 3.25,
-        ),
-      ],
-    );
-  }
-}
-
-class FoodItemsPaes extends StatefulWidget {
-  @override
-  _FoodItemsPaesState createState() => _FoodItemsPaesState();
-}
-
-class _FoodItemsPaesState extends State<FoodItemsPaes> {
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      children: <Widget>[
-        FoodTiles(
-          name: "Pão caseiro",
-          imageUrl: "pao_caseiro.jpg",
-          description: "",
-          price: 2.25,
-        ),
-        FoodTiles(
-          name: "Pão caseiro completo",
-          imageUrl: 'pao_caseiro_completo.jpg',
-          description: "",
-          price: 3.25,
-        ),
-        FoodTiles(
-          name: "Misto quente",
-          imageUrl: 'misto_quente.jpg',
-          description: "",
-          price: 3.00,
-        ),
-        FoodTiles(
-            name: "Língua de sogra (pq.)",
-            imageUrl: 'lingua_de_sogra.jpg',
-            description: "",
-            price: 2.00
-        ),
-        FoodTiles(
-            name: "Língua de sogra (gr.)",
-            imageUrl: 'lingua_de_sogra_grande.jpg',
-            description: "",
-            price: 3.00
-        ),
-      ],
-    );
-  }
-}
-
-
-class AdvanceBar extends StatefulWidget {
-  AdvanceBar(
-      {Key? key,})
-      : super(key: key);
-
-  @override
-  _AdvanceBarState createState() => _AdvanceBarState();
-}
-
-class _AdvanceBarState extends State<AdvanceBar> {
-
-  @override
-  Widget build(BuildContext context) {
-    return BottomAppBar(
-      color: getCorTema(),
-      child: Row(
-        children: [
-          Container(
-            padding: EdgeInsets.only(left: 16),
-            child: Text(
-              'Total: R\$ ${realFormat.format(NewOrderPage.totalValue.value)}',
-              style: TextStyle(
-                fontSize: 16,
-                color: Colors.white
-              ),
-            ),
-          ),
-          Spacer(),
-          Text(
-            'Avançar',
-            style: new TextStyle(
-                fontSize: 16.0,
-                color: Colors.white,
-                fontWeight: FontWeight.w400),
-          ),
-          IconButton(
-            splashRadius: 10,
-            icon: Icon(
-              Icons.arrow_forward_ios,
-              color: Colors.white,
-              size: 12,
-            ), onPressed: () {
-              NewOrderPage.totalValue.value = 0; // Resetar a página
-              setState(() {});
-            Navigator.push(
-                context,
-                PageTransition(
-                    type: PageTransitionType.rightToLeft,
-                    duration: Duration(milliseconds: 500),
-                    reverseDuration: Duration(milliseconds: 500),
-                    child: ClientsPage()
-                )
-            );
-          },
-          ),
-        ],
-      ),
-    );
-
+      FoodPage.totalValue.value += widget.isSelectedAndQuantityAndPrice[2];
   }
 }

@@ -1,4 +1,4 @@
-import 'package:appetit/screens/newOrderPage/new_order_page_food.dart';
+import 'package:appetit/screens/newOrderPages/foodPage/food-page-widget.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -26,6 +26,6 @@ InkWell orderButton(context) {
         ],
       ),
     ),
-    onTap: () => {Navigator.of(context).pushNamed(NewOrderPage.tag)},
+    onTap: () => {Navigator.of(context).pushNamed(FoodPage.tag)},
   );
 }

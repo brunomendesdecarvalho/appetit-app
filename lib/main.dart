@@ -1,10 +1,12 @@
-import 'package:appetit/screens/newOrderPage/new_order_page_food.dart';
+import 'package:appetit/screens/newOrderPages/foodPage/food-page-widget.dart';
+import 'package:appetit/screens/newOrderPages/clientPage/client-page.dart';
+import 'package:appetit/screens/newOrderPages/finish-order-page/finish-order-page-widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter/services.dart';
 import 'utils/theme.dart';
-import 'screens/loginPage/login_page.dart';
-import 'screens/homePage/home_page.dart';
+import 'screens/loginPage/login-page-widget.dart';
+import 'screens/homePage/home-page-widget.dart';
 
 void main() => runApp(Appetit());
 
@@ -13,7 +15,9 @@ class Appetit extends StatelessWidget {
   final routes = <String, WidgetBuilder>{
     LoginPage.tag: (context) => LoginPage(),
     HomePage.tag: (context) => HomePage(),
-    NewOrderPage.tag: (context) => NewOrderPage(),
+    FoodPage.tag: (context) => FoodPage(),
+    ClientPage.tag: (context) => ClientPage(),
+    FinishOrderPage.tag: (context) => FinishOrderPage(),
   };
 
   @override
