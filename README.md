@@ -50,10 +50,10 @@ Por fim, vem a página de feedback do pedido, mostrando que ele fora realizado c
 Até a data da escrita desse Readme.md, o projeto basicamente consiste em algumas pastas dentro da lib, a saber:
 - loginPage, onde se encontram os widgets e uma outra pasta "components" com alguns arquivos úteis;
 - homePage, onde se encontram os widgets da página inicial e uma pasta "components" com alguns arquivos importantes, dentre eles o script que gera a lista estática de pedidos;
-- newOrderPage, onde estão as páginas associadas ao pedido: lista de produtos, lista de clientes e seleção de data. Além disso, há uma pasta components com alguns componentes úteis e uma pasta widgets, com alguns widgets importantes;
+- newOrderPages, onde estão as pastas associadas ao pedido, a saber: foodPage, onde estão as páginas de listagem de comida e detalhes da comida; clientPage, onde está a página de listagem de clientes; finishOrderPage, onde está a página de selecionar se o cliente já pagou ou não o pedido, bem como a data, e commons, onde estão métodos utilizados em todas as pastas citadas acima;
 - endPage, onde se encontra a página de feedback do pedido.
 
-Não foi utilizado um padrão específico de projeto, tal como MVC, MVVM ou BloC. 
+Não foi utilizada uma arquitetura específica de projeto, tal como MVC, embora apresente algumas características desta. Há, também, uma grande divisão das funcionalidades em módulos mais simples, de modo a facilitar a leitura e manutenção do código.
 
 ### Pacotes utilizados
 
@@ -71,7 +71,7 @@ As dependências que se encontram no arquivo pubspect.yaml, são as seguintes:
 - flutter_rounded_date_picker: 2.0.2
 
 ### Bugs Conhecidos
-- Ao selecionar a primeira opção (realizar novo pedido) na página final, os cards selecionados permanecem laranjas, embora o preço seja resetado normalmente.
+- Ao selecionar a primeira opção (realizar novo pedido) na página final, os cards selecionados permanecem laranjas, embora o preço seja resetado normalmente. (CORRIGIDO)
 
 ### Como Rodar o Projeto
 
