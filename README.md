@@ -73,6 +73,8 @@ As dependências que se encontram no arquivo pubspect.yaml, são as seguintes:
 
 ### Bugs Conhecidos
 - Ao selecionar a primeira opção (realizar novo pedido) na página final, os cards selecionados permanecem laranjas, embora o preço seja resetado normalmente. (CORRIGIDO)
+- O texto da barra inferior presente na página de clientes é o mesmo para um ou mais clientes selecionados, havendo um erro de concordância na frase. (CORRIGIDO)
+- O texto cobrando a senha pede uma senha de no mínimo 8 caracteres. (Corrigido, porém necessita de alteração no arquivo 'validation_message.dart' do pacote 'reactive_forms')
 
 ### Como Rodar o Projeto
 
