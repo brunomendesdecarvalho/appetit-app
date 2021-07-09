@@ -32,7 +32,8 @@ class EndOfOrderPage extends StatelessWidget {
                   borderRadius: BorderRadius.circular(24),
                 ),
                 onPressed: () => {
-                Navigator.of(context).popUntil(ModalRoute.withName(FoodPage.tag)),
+                  Navigator.of(context).popUntil(ModalRoute.withName(HomePage.tag)),
+                  Navigator.pushNamed(context, FoodPage.tag)
                 },
                 padding: EdgeInsets.only(left : 14, right: 14),
                 color: Color(0xFFFF8822),
@@ -50,7 +51,6 @@ class EndOfOrderPage extends StatelessWidget {
                 ),
                 onPressed: () => {
                   Navigator.of(context).popUntil(ModalRoute.withName(HomePage.tag)),
-                  Navigator.pushNamed(context, FoodPage.tag)
                 },
                 padding: EdgeInsets.symmetric(vertical : 14, horizontal: 24),
                 color: Colors.white,

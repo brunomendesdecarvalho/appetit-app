@@ -1,4 +1,4 @@
-import 'package:appetit/screens/newOrderPages/clientPage/widgets/advance-bar-widget.dart';
+import 'package:appetit/screens/newOrderPages/foodPage/widgets/advance-bar-widget.dart';
 import 'package:appetit/screens/newOrderPages/foodPage/widgets/food-list-builder-widget.dart';
 import 'package:appetit/screens/newOrderPages/foodPage/widgets/food-detail-widget.dart';
 import 'package:appetit/screens/newOrderPages/common-components/progress-bar-and-text.dart';
@@ -15,7 +15,7 @@ import '../common-components/search.dart';
 
 
 class FoodPage extends StatefulWidget {
-  static String tag = 'new-order-page';
+  static String tag = 'food-page';
   static RxDouble totalValue = new RxDouble(0); // Gerenciador de estado do valor total do pedido
   FoodPage({Key? key}) : super(key: key);
 
