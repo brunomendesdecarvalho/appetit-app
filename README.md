@@ -111,7 +111,7 @@ flutter run
 Uma lista com os dispositivos disponíveis aparecerá. Basta escolher o desejado e esperar o aplicativo iniciar.
 
 ### Vídeo de Demonstração
-Um vídeo demonstrando o aplicativo rodando encontra-se neste [link](https://youtu.be/0lionGi1LUs)
+Um vídeo demonstrando o aplicativo rodando encontra-se neste [link](https://youtu.be/0lionGi1LUs).
 
 ### Agradecimentos
 Sou muito grato à Maida.health, por me permitir a oportunidade de participar deste processo seletivo. Foi bastante desafiador, aprendi muita coisa nova e, independentemente do resultado, estou muito satisfeito, porque pude dar o meu melhor com tudo aquilo que eu sabia e com o que consegui aprender.
