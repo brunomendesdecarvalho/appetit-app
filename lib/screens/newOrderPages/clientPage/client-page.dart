@@ -1,14 +1,14 @@
 import 'package:appetit/screens/newOrderPages/clientPage/widgets/advance-bar-widget.dart';
 import 'package:appetit/screens/newOrderPages/clientPage/widgets/client-list-widget.dart';
-import 'package:appetit/screens/newOrderPages/common-components/progress-bar-and-text.dart';
+import 'package:appetit/screens/newOrderPages/commons/progress-bar-and-text.dart';
 import 'package:appetit/utils/theme.dart';
 import 'package:appetit/utils/title_text.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../common-components/back-button.dart';
-import '../common-components/search.dart';
+import '../commons/back-button.dart';
+import '../commons/search.dart';
 
 class ClientPage extends StatefulWidget {
   static String tag = 'clients-page';

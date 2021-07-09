@@ -1,8 +1,8 @@
+import 'package:appetit/screens/newOrderPages/finishOrderPage/finish-order-page-widget.dart';
 import 'package:appetit/utils/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:page_transition/page_transition.dart';
 
-import '../../finish-order-page/finish-order-page-widget.dart';
 import 'client-list-widget.dart';
 
 class AdvanceBar extends StatefulWidget {

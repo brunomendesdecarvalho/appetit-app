@@ -1,6 +1,6 @@
+import 'package:appetit/screens/newOrderPages/finishOrderPage/finish-order-page-widget.dart';
 import 'package:appetit/screens/newOrderPages/foodPage/food-page-widget.dart';
 import 'package:appetit/screens/newOrderPages/clientPage/client-page.dart';
-import 'package:appetit/screens/newOrderPages/finish-order-page/finish-order-page-widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter/services.dart';

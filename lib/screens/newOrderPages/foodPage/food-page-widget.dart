@@ -1,7 +1,7 @@
 import 'package:appetit/screens/newOrderPages/foodPage/widgets/advance-bar-widget.dart';
 import 'package:appetit/screens/newOrderPages/foodPage/widgets/food-list-builder-widget.dart';
 import 'package:appetit/screens/newOrderPages/foodPage/widgets/food-detail-widget.dart';
-import 'package:appetit/screens/newOrderPages/common-components/progress-bar-and-text.dart';
+import 'package:appetit/screens/newOrderPages/commons/progress-bar-and-text.dart';
 import 'package:appetit/utils/price_format_real.dart';
 import 'package:appetit/utils/theme.dart';
 import 'package:appetit/utils/title_text.dart';
@@ -10,8 +10,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:page_transition/page_transition.dart';
 
-import '../common-components/back-button.dart';
-import '../common-components/search.dart';
+import '../commons/back-button.dart';
+import '../commons/search.dart';
 
 
 class FoodPage extends StatefulWidget {

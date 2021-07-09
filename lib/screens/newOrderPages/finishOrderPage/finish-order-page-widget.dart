@@ -1,7 +1,7 @@
 import 'dart:ui';
 
 import 'package:appetit/screens/endPage/end-page-widget.dart';
-import 'package:appetit/screens/newOrderPages/common-components/progress-bar-and-text.dart';
+import 'package:appetit/screens/newOrderPages/commons/progress-bar-and-text.dart';
 import 'package:appetit/utils/theme.dart';
 import 'package:appetit/utils/title_text.dart';
 import 'package:flutter/cupertino.dart';
@@ -10,7 +10,7 @@ import 'package:flutter_material_pickers/helpers/show_date_picker.dart';
 import 'package:page_transition/page_transition.dart';
 import 'package:intl/intl.dart';
 
-import '../common-components/back-button.dart';
+import '../commons/back-button.dart';
 
 class FinishOrderPage extends StatefulWidget {
   static String tag = 'finish-order-page';
